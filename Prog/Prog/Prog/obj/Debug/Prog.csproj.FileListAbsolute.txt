@@ -1,0 +1,9 @@
+E:\work\diploma\Diploma\Prog\Prog\Prog\bin\Debug\Prog.exe.config
+E:\work\diploma\Diploma\Prog\Prog\Prog\bin\Debug\Prog.exe
+E:\work\diploma\Diploma\Prog\Prog\Prog\bin\Debug\Prog.pdb
+E:\work\diploma\Diploma\Prog\Prog\Prog\obj\Debug\Prog.csprojAssemblyReference.cache
+E:\work\diploma\Diploma\Prog\Prog\Prog\obj\Debug\Prog.MyProg.resources
+E:\work\diploma\Diploma\Prog\Prog\Prog\obj\Debug\Prog.csproj.GenerateResource.cache
+E:\work\diploma\Diploma\Prog\Prog\Prog\obj\Debug\Prog.csproj.CoreCompileInputs.cache
+E:\work\diploma\Diploma\Prog\Prog\Prog\obj\Debug\Prog.exe
+E:\work\diploma\Diploma\Prog\Prog\Prog\obj\Debug\Prog.pdb
