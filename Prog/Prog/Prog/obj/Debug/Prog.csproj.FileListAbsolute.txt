@@ -7,3 +7,12 @@ E:\work\diploma\Diploma\Prog\Prog\Prog\obj\Debug\Prog.csproj.GenerateResource.ca
 E:\work\diploma\Diploma\Prog\Prog\Prog\obj\Debug\Prog.csproj.CoreCompileInputs.cache
 E:\work\diploma\Diploma\Prog\Prog\Prog\obj\Debug\Prog.exe
 E:\work\diploma\Diploma\Prog\Prog\Prog\obj\Debug\Prog.pdb
+F:\work\Diploma\Dip\Diploma\Prog\Prog\Prog\bin\Debug\Prog.exe.config
+F:\work\Diploma\Dip\Diploma\Prog\Prog\Prog\bin\Debug\Prog.exe
+F:\work\Diploma\Dip\Diploma\Prog\Prog\Prog\bin\Debug\Prog.pdb
+F:\work\Diploma\Dip\Diploma\Prog\Prog\Prog\obj\Debug\Prog.csprojAssemblyReference.cache
+F:\work\Diploma\Dip\Diploma\Prog\Prog\Prog\obj\Debug\Prog.MyProg.resources
+F:\work\Diploma\Dip\Diploma\Prog\Prog\Prog\obj\Debug\Prog.csproj.GenerateResource.cache
+F:\work\Diploma\Dip\Diploma\Prog\Prog\Prog\obj\Debug\Prog.csproj.CoreCompileInputs.cache
+F:\work\Diploma\Dip\Diploma\Prog\Prog\Prog\obj\Debug\Prog.exe
+F:\work\Diploma\Dip\Diploma\Prog\Prog\Prog\obj\Debug\Prog.pdb
