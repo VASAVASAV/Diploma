@@ -61,10 +61,13 @@ namespace Prog
         private TextBox textBox7;
         private Button button5;
         private Button button4;
+        private TabPage tabPage7;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
 
         Func<double, double> gt = x => Math.Exp(-1 * Math.Pow(Math.Log(x), 2));
         //Func<double, double> gt = x => (x >= 0 && x < 1) ? (Math.Exp(x-1)) : (0);
         //Func<double, double> gt = x => Math.Exp(-1 * Math.Pow(Math.Log(x), 2)) + 0.65*Math.Exp(-1 * Math.Pow(Math.Log(x) -5, 2));
+        //Func<double, double> gt = x => Math.Exp(-1 * Math.Pow(Math.Log(x), 2)) + 0.75* Math.Exp(-1 * (Math.Pow(Math.Log(x-5), 2)-1));
 
         public MyProg()
         {
@@ -81,6 +84,9 @@ namespace Prog
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -127,6 +133,8 @@ namespace Prog
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -144,6 +152,8 @@ namespace Prog
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.tabPage7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -476,6 +486,7 @@ namespace Prog
             // 
             this.tabControl3.Controls.Add(this.tabPage5);
             this.tabControl3.Controls.Add(this.tabPage6);
+            this.tabControl3.Controls.Add(this.tabPage7);
             this.tabControl3.Location = new System.Drawing.Point(321, 82);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
@@ -623,6 +634,33 @@ namespace Prog
             this.textBox2.Size = new System.Drawing.Size(260, 592);
             this.textBox2.TabIndex = 2;
             // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.chart3);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Size = new System.Drawing.Size(653, 507);
+            this.tabPage7.TabIndex = 2;
+            this.tabPage7.Text = "Діаграма Найквіста";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // chart3
+            // 
+            chartArea3.Name = "ChartArea1";
+            this.chart3.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart3.Legends.Add(legend3);
+            this.chart3.Location = new System.Drawing.Point(4, 3);
+            this.chart3.Name = "chart3";
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.chart3.Series.Add(series5);
+            this.chart3.Size = new System.Drawing.Size(646, 501);
+            this.chart3.TabIndex = 0;
+            this.chart3.Text = "chart3";
+            // 
             // MyProg
             // 
             this.ClientSize = new System.Drawing.Size(1296, 669);
@@ -651,6 +689,8 @@ namespace Prog
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabPage7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -832,7 +872,7 @@ namespace Prog
                 }
                 double result = y * Math.Pow(((-2 * Math.Log(s)) / s), 0.5);
                 Target = Magic(Omega[i]);
-                ZIm.Add(-1*Win(Target));
+                ZIm.Add(Win(Target));
                 ZIm[i] = ZIm[i] + result * sigm * ZIm[i];
             }
             dataGridView3.Rows.Clear();
@@ -841,6 +881,12 @@ namespace Prog
                 dataGridView3.Rows.Add((i+1),Omega[i],ZReal[i],ZIm[i]);
             }
                 textBox2.Text += "Done" + Environment.NewLine;
+
+            chart3.Series[0].Points.Clear();
+            for (i = 0; i < ZReal.Count; i++)
+            {
+                chart3.Series[0].Points.AddXY(ZReal[i],ZIm[i]);
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -880,6 +926,11 @@ namespace Prog
             List<double> ExactErCheb = new List<double>();
             List<double> ExactERQuadratic = new List<double>();
 
+            List<double> NeighErCheb2 = new List<double>();
+            List<double> NeighErQuadratic2 = new List<double>();
+            List<double> ExactErCheb2 = new List<double>();
+            List<double> ExactERQuadratic2 = new List<double>();
+
             double[,] g;
             double[,] g2;
             double[,] gb;
@@ -914,17 +965,17 @@ namespace Prog
                     for (j = 0; j < ZReal.Count; j++)
                     {
                         a1[i, j] = (Math.PI * Gamma[i]) / (2 * (Omega[i] + Omega[j]));
-                        a2[i, j] = (Math.PI * Gamma[i]) / (2 * Omega[i] * Omega[j] * (Omega[i] + Omega[j]));
+                        a2[i, j] = (Math.PI * Gamma[i]) / (2 *  (Omega[i] + Omega[j]));
                         ab1[i, j] = (Math.PI * Gamma[i]) / (2 * (Omega[i] + Omega[j]));
-                        ab2[i, j] = (Math.PI * Gamma[i]) / (2 * Omega[i] * Omega[j] * (Omega[i] + Omega[j]));
+                        ab2[i, j] = (Math.PI * Gamma[i]) / (2 *(Omega[i] + Omega[j]));
                     }
                 }
                 for (i = 0; i < ZReal.Count; i++)
                 {
-                    a1[i, i] += lambda;
-                    a2[i, i] += lambda;
-                    ab1[i, i] += 2*lambda;
-                    ab2[i, i] += 2*lambda;
+                    a1[i, i] = (Math.PI / (4 * Omega[i])) + lambda;
+                    a2[i, i] = (Math.PI / (4 * Omega[i])) + lambda;
+                    ab1[i, i] = (Math.PI / (4 * Omega[i])) + 2 * lambda;
+                    ab2[i, i] = (Math.PI / (4 * Omega[i])) + 2 * lambda;
                 }
                 RightSide = new double[ZReal.Count, 1];
                 for (i = 0; i < ZReal.Count; i++)
@@ -936,7 +987,7 @@ namespace Prog
                 gb = Matrixes.Solve(ab1, RightSide);
                 for (i = 0; i < ZReal.Count; i++)
                 {
-                    RightSide[i, 0] = -1 * Gamma[i] * ZIm[i];
+                    RightSide[i, 0] =  Gamma[i] * ZIm[i];
                 }
                 g2 = Matrixes.Solve(a2, RightSide);
                 gb2 = Matrixes.Solve(ab2, RightSide);
@@ -978,23 +1029,70 @@ namespace Prog
 
                     //chart1.Series[1].Points.AddXY(tau, temp1);
                     ///////
-
-                   temp1 = 0;
-                   for (i = 0; i < ZReal.Count; i++)
-                   {
-                       temp1 += (g2[i, 0] * Omega[i] * tau) / (1 + Omega[i] * Omega[i] * tau * tau);
-                   }
-                   temp2 = 0;
-                   for (i = 0; i < ZReal.Count; i++)
-                   {
-                       temp2 += (gb2[i, 0] * Omega[i] * tau) / (1 + Omega[i] * Omega[i] * tau * tau);
-                   }
-                   chart2.Series[1].Points.AddXY(tau, temp1);
                 }
                 NeighErCheb.Add(MaxDifferenceNeigb);
                 NeighErQuadratic.Add(Math.Sqrt(Sum1 / (Lim*20)));
                 ExactErCheb.Add(MaxDifferenceExact);
                 ExactERQuadratic.Add(Math.Sqrt(Sum2 / (Lim * 20)));
+                ///////////////////////////////
+                MaxDifferenceNeigb = 0;
+                MaxDifferenceExact = 0;
+                Sum1 = 0; Sum2 = 0;
+                for (double tau = 0; tau < Lim; tau += step)
+                {
+                    //chart1.Series[0].Points.AddXY(tau, gt(tau));
+                    //chart2.Series[0].Points.AddXY(tau, gt(tau));
+                    temp1 = 0;
+                    for (i = 0; i < ZReal.Count; i++)
+                    {
+                        temp1 += g[i, 0] / (1 + Omega[i] * Omega[i] * tau * tau);
+                    }
+                    temp2 = 0;
+                    for (i = 0; i < ZReal.Count; i++)
+                    {
+                        temp2 += gb[i, 0] / (1 + Omega[i] * Omega[i] * tau * tau);
+                    }
+                    if (MaxDifferenceNeigb < Math.Abs(temp1 - temp2))
+                    {
+                        MaxDifferenceNeigb = Math.Abs(temp1 - temp2);
+                    }
+                    if (MaxDifferenceExact < Math.Abs(temp1 - gt(tau)))
+                    {
+                        MaxDifferenceExact = Math.Abs(temp1 - gt(tau));
+                    }
+                    Sum1 += Math.Pow(temp1 - temp2, 2);
+                    Sum2 += Math.Pow(temp1 - gt(tau), 2);
+
+                    //chart1.Series[1].Points.AddXY(tau, temp1);
+                    ///////
+
+                    temp1 = 0;
+                    for (i = 0; i < ZReal.Count; i++)
+                    {
+                        temp1 += (g2[i, 0] * Omega[i] * tau) / (1 + Omega[i] * Omega[i] * tau * tau);
+                    }
+                    temp2 = 0;
+                    for (i = 0; i < ZReal.Count; i++)
+                    {
+                        temp2 += (gb2[i, 0] * Omega[i] * tau) / (1 + Omega[i] * Omega[i] * tau * tau);
+                    }
+                    if (MaxDifferenceNeigb < Math.Abs(temp1 - temp2))
+                    {
+                        MaxDifferenceNeigb = Math.Abs(temp1 - temp2);
+                    }
+                    if (MaxDifferenceExact < Math.Abs(temp1 - gt(tau)))
+                    {
+                        MaxDifferenceExact = Math.Abs(temp1 - gt(tau));
+                    }
+                    Sum1 += Math.Pow(temp1 - temp2, 2);
+                    Sum2 += Math.Pow(temp1 - gt(tau), 2);
+                    ///chart2.Series[1].Points.AddXY(tau, temp1);
+                }
+                NeighErCheb2.Add(MaxDifferenceNeigb);
+                NeighErQuadratic2.Add(Math.Sqrt(Sum1 / (Lim * 20)));
+                ExactErCheb2.Add(MaxDifferenceExact);
+                ExactERQuadratic2.Add(Math.Sqrt(Sum2 / (Lim * 20)));
+                ///////////////////////
                 if (checkBox1.Checked)
                 {
                     textBox2.Text += ("Похибки для λ="+lambda+":"+Environment.NewLine);
@@ -1006,7 +1104,8 @@ namespace Prog
                 lambda /= 2;
             }
             int MinVal = NeighErCheb.FindIndex(x=>x==NeighErCheb.Min());
-            Console.WriteLine();
+            int MinVal2 = NeighErCheb2.FindIndex(x => x == NeighErCheb2.Min());
+            Console.WriteLine(MinVal + "   " + MinVal2);
 
             lambda = Math.Pow(2,-1*MinVal);
 
@@ -1015,17 +1114,17 @@ namespace Prog
                 for (j = 0; j < ZReal.Count; j++)
                 {
                     a1[i, j] = (Math.PI * Gamma[i]) / (2 * (Omega[i] + Omega[j]));
-                    a2[i, j] = (Math.PI * Gamma[i]) / (2 * Omega[i] * Omega[j] * (Omega[i] + Omega[j]));
+                    a2[i, j] = (Math.PI * Gamma[i]) / (2 *  (Omega[i] + Omega[j]));
                     ab1[i, j] = (Math.PI * Gamma[i]) / (2 * (Omega[i] + Omega[j]));
-                    ab2[i, j] = (Math.PI * Gamma[i]) / (2 * Omega[i] * Omega[j] * (Omega[i] + Omega[j]));
+                    ab2[i, j] = (Math.PI * Gamma[i]) / (2 *  (Omega[i] + Omega[j]));
                 }
             }
             for (i = 0; i < ZReal.Count; i++)
             {
-                a1[i, i] += lambda;
-                a2[i, i] += lambda;
-                ab1[i, i] += 2 * lambda;
-                ab2[i, i] += 2 * lambda;
+                a1[i, i] = (Math.PI / (4 * Omega[i])) + lambda;
+                a2[i, i] =(Math.PI/(4*Omega[i])) + lambda;
+                ab1[i, i]  = (Math.PI / (4 * Omega[i])) + 2*lambda;
+                ab2[i, i] = (Math.PI / (4 * Omega[i])) + 2*lambda;
             }
             RightSide = new double[ZReal.Count, 1];
             for (i = 0; i < ZReal.Count; i++)
@@ -1037,7 +1136,7 @@ namespace Prog
             gb = Matrixes.Solve(ab1, RightSide);
             for (i = 0; i < ZReal.Count; i++)
             {
-                RightSide[i, 0] = -1 * Gamma[i] * ZIm[i];
+                RightSide[i, 0] = Gamma[i] * ZIm[i];
             }
             g2 = Matrixes.Solve(a2, RightSide);
             gb2 = Matrixes.Solve(ab2, RightSide);
@@ -1079,11 +1178,18 @@ namespace Prog
                 chart2.Series[1].Points.AddXY(tau, temp1);
             }
 
-           textBox2.Text+=("Похибки для оптимального λ=" + lambda + ":" + Environment.NewLine);
+           textBox2.Text+=("Похибки для оптимального λ(Real)=" + lambda + ":" + Environment.NewLine);
            textBox2.Text+=("  Макс для сусідів =" + NeighErCheb[MinVal] + Environment.NewLine);
            textBox2.Text+=("  Квадратична для сусідів =" + NeighErQuadratic[MinVal] + Environment.NewLine);
            textBox2.Text+=("  Макс для точного =" + ExactErCheb[MinVal] + Environment.NewLine);
            textBox2.Text+=("  Квалратична для точного =" + ExactERQuadratic[MinVal] + Environment.NewLine);
+
+           textBox2.Text += ("Похибки для оптимального λ(Im)=" + lambda + ":" + Environment.NewLine);
+           textBox2.Text += ("  Макс для сусідів =" + NeighErCheb2[MinVal] + Environment.NewLine);
+           textBox2.Text += ("  Квадратична для сусідів =" + NeighErQuadratic2[MinVal] + Environment.NewLine);
+           textBox2.Text += ("  Макс для точного =" + ExactErCheb2[MinVal] + Environment.NewLine);
+           textBox2.Text += ("  Квалратична для точного =" + ExactERQuadratic2[MinVal] + Environment.NewLine);
+
         }
 
         private void button5_Click(object sender, EventArgs e)
