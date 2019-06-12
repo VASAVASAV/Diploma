@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,9 +59,11 @@ namespace Prog
         private TextBox textBox5;
         private Label label6;
         private TextBox textBox7;
+        private Button button5;
+        private Button button4;
 
-        //Func<double, double> gt = x => Math.Exp(-1 * Math.Pow(Math.Log(x), 2));
-        Func<double, double> gt = x => (x >= 0 && x < 1) ? (Math.Exp(x-1)) : (0);
+        Func<double, double> gt = x => Math.Exp(-1 * Math.Pow(Math.Log(x), 2));
+        //Func<double, double> gt = x => (x >= 0 && x < 1) ? (Math.Exp(x-1)) : (0);
         //Func<double, double> gt = x => Math.Exp(-1 * Math.Pow(Math.Log(x), 2)) + 0.65*Math.Exp(-1 * Math.Pow(Math.Log(x) -5, 2));
 
         public MyProg()
@@ -101,6 +104,10 @@ namespace Prog
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -120,8 +127,6 @@ namespace Prog
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -354,6 +359,8 @@ namespace Prog
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button5);
+            this.tabPage2.Controls.Add(this.button4);
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.textBox7);
             this.tabPage2.Controls.Add(this.label4);
@@ -369,6 +376,42 @@ namespace Prog
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Знаходження рішення";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(161, 565);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(154, 46);
+            this.button5.TabIndex = 11;
+            this.button5.Text = "Записати опір у файл";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(3, 565);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(156, 46);
+            this.button4.TabIndex = 10;
+            this.button4.Text = "Зчитати опір з файлу";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(428, 50);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(32, 13);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Крок";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(504, 46);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(100, 20);
+            this.textBox7.TabIndex = 8;
             // 
             // label4
             // 
@@ -520,7 +563,7 @@ namespace Prog
             this.Column6});
             this.dataGridView3.Location = new System.Drawing.Point(6, 3);
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(309, 609);
+            this.dataGridView3.Size = new System.Drawing.Size(309, 556);
             this.dataGridView3.TabIndex = 2;
             // 
             // dataGridViewTextBoxColumn1
@@ -579,22 +622,6 @@ namespace Prog
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(260, 592);
             this.textBox2.TabIndex = 2;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(428, 50);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(32, 13);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Крок";
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(504, 46);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 8;
             // 
             // MyProg
             // 
@@ -748,6 +775,7 @@ namespace Prog
                     return;
                 }
             }
+            
             ///////
             double sigm;
             try
@@ -762,7 +790,6 @@ namespace Prog
             Func<double, double> Target;
             double UpperBorder = 1000;
             double step = 0.01;
-            Func<double, double, double> Carry = (x, y) => (gt(x)/(1+y*y*x*x));
             Func< double, Func<double, double>> Magic = (y) => ((z) => (gt(z) / (1 + z * z  * y * y)));
             Func< double, double, double, Func<Func<double,double>,double>> Integrate = (BoB,UpB, st) => ((InF)=>(Tools.CountIntegral(InF, BoB,UpB,st)));
             Func<Func<double, double>, double> Win = Integrate(0,UpperBorder,step);
@@ -1057,6 +1084,86 @@ namespace Prog
            textBox2.Text+=("  Квадратична для сусідів =" + NeighErQuadratic[MinVal] + Environment.NewLine);
            textBox2.Text+=("  Макс для точного =" + ExactErCheb[MinVal] + Environment.NewLine);
            textBox2.Text+=("  Квалратична для точного =" + ExactERQuadratic[MinVal] + Environment.NewLine);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog savingFileDialog = new SaveFileDialog();
+            savingFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            savingFileDialog.FilterIndex = 2;
+            savingFileDialog.RestoreDirectory = true;
+            savingFileDialog.RestoreDirectory = true;
+            if (savingFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                using (System.IO.StreamWriter FileToWrite = new System.IO.StreamWriter(savingFileDialog.FileName, true))
+                {
+                    for (int i = 0; i < dataGridView3.Rows.Count; i++)
+                    {
+                        FileToWrite.WriteLine("" + dataGridView3.Rows[i].Cells[1].Value + "\t" + dataGridView3.Rows[i].Cells[2].Value + "\t" + dataGridView3.Rows[i].Cells[3].Value);
+                    }
+                }
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog OpeningDialog = new OpenFileDialog();
+
+            OpeningDialog.InitialDirectory = Application.StartupPath.ToString();
+            OpeningDialog.Filter = "txt files (*.txt)|*.txt| dat files (*.dat)|*.dat";
+            OpeningDialog.FilterIndex = 1;
+            OpeningDialog.RestoreDirectory = true;
+
+            if (OpeningDialog.ShowDialog() == DialogResult.OK)
+            {
+                ZReal.Clear();
+                ZIm.Clear();
+                dataGridView3.Rows.Clear();
+                //this.ProgressBar.Step = 100;
+                //this.ProgressBar.PerformStep();
+                //this.ProgressBar.Value = 50;
+                List<double> temp = new List<double>();
+                string[] FileLikeStrings = File.ReadAllLines(OpeningDialog.FileName);
+                char[] separators = new char[] { ' ', '\t', '\n' };
+                for (int i = 0; i < FileLikeStrings.Length; i++)
+                {
+                    Tools.RemoveComments(ref FileLikeStrings[i]);
+                    string[] valuesInLine = FileLikeStrings[i].Split(separators, StringSplitOptions.RemoveEmptyEntries);
+                    for (int j = 0; j < 3; j++)
+                    {
+                        double x;
+                        try
+                        {
+                            x = Convert.ToDouble(valuesInLine[j]);
+                        }
+                        catch
+                        {
+                            try
+                            {
+                                valuesInLine[j] = valuesInLine[j].Replace(".", ",");
+                                x = Convert.ToDouble(valuesInLine[j]);
+                            }
+                            catch
+                            {
+                                textBox2.Text += "Theres mistake in string #" + i + Environment.NewLine;
+                                continue;
+                            }
+                        }
+                        temp.Add(x);
+                    }
+                    if (temp.Count < 3)
+                    {
+                        continue;
+                    }
+                    Omega.Add(temp[0]);
+                    ZReal.Add(temp[1]);
+                    ZIm.Add(temp[2]);
+                    dataGridView3.Rows.Add((dataGridView3.Rows.Count + 1), temp[0], temp[1], temp[2]);
+                    temp.Clear();
+                }
+
+            }
+            //this.ProgressBar.Value = 1;
         }
     }
 }

@@ -31,5 +31,46 @@ namespace Prog
             }
             return result;
         }
+
+        public static void RemoveComments(ref string s)
+        {
+            char[] b = new char[s.Length];
+            char[] z = s.ToCharArray();
+            int Len = 0;
+            for (int i = 0; i < z.Length; i++)
+            {
+                if (z[i] != '#')
+                {
+                    Len++;
+                    b[i] = z[i];
+                }
+                else break;
+            }
+
+            if (b.Length == 0)
+                s = null;
+            s = "";
+            for (int i = 0; i < Len; i++)
+            {
+                s += b[i];
+            }
+        }
+
+        public static int FindMinLength(string[] InputStrings)
+        {
+            string[] valuesInLine;
+            char[] separators = new char[] { ' ', '\t', '\n' };
+            int MinVal = 10000;
+            for (int i = 0; i < InputStrings.Length; i++)
+            {
+                Tools.RemoveComments(ref InputStrings[i]);
+                valuesInLine = InputStrings[i].Split(separators, StringSplitOptions.RemoveEmptyEntries);
+                if (MinVal >= valuesInLine.Length && valuesInLine.Length != 0)
+                {
+                    MinVal = valuesInLine.Length;
+                }
+            }
+            return MinVal;
+        }
     }
 }
