@@ -63,7 +63,11 @@ namespace Prog
         private Button button4;
         private TabPage tabPage7;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
-
+        private Button button6;
+        private Label label7;
+        private TextBox textBox8;
+        private TabPage tabPage8;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart4;
         Func<double, double> gt = x => Math.Exp(-1 * Math.Pow(Math.Log(x), 2));
         //Func<double, double> gt = x => (x >= 0 && x < 1) ? (Math.Exp(x-1)) : (0);
         //Func<double, double> gt = x => Math.Exp(-1 * Math.Pow(Math.Log(x), 2)) + 0.65*Math.Exp(-1 * Math.Pow(Math.Log(x) -5, 2));
@@ -87,6 +91,11 @@ namespace Prog
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -110,6 +119,9 @@ namespace Prog
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button6 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -125,6 +137,10 @@ namespace Prog
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -133,8 +149,6 @@ namespace Prog
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -150,10 +164,12 @@ namespace Prog
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
+            this.tabPage8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -369,6 +385,9 @@ namespace Prog
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button6);
+            this.tabPage2.Controls.Add(this.label7);
+            this.tabPage2.Controls.Add(this.textBox8);
             this.tabPage2.Controls.Add(this.button5);
             this.tabPage2.Controls.Add(this.button4);
             this.tabPage2.Controls.Add(this.label6);
@@ -386,6 +405,32 @@ namespace Prog
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Знаходження рішення";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(855, 3);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(124, 69);
+            this.button6.TabIndex = 14;
+            this.button6.Text = "Розв\'язати (додатковий метод)";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(407, 36);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(60, 13);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Ліва межа";
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(483, 33);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(100, 20);
+            this.textBox8.TabIndex = 12;
             // 
             // button5
             // 
@@ -410,7 +455,7 @@ namespace Prog
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(428, 50);
+            this.label6.Location = new System.Drawing.Point(407, 62);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(32, 13);
             this.label6.TabIndex = 9;
@@ -418,7 +463,7 @@ namespace Prog
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(504, 46);
+            this.textBox7.Location = new System.Drawing.Point(483, 59);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(100, 20);
             this.textBox7.TabIndex = 8;
@@ -426,7 +471,7 @@ namespace Prog
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(428, 27);
+            this.label4.Location = new System.Drawing.Point(407, 10);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 13);
             this.label4.TabIndex = 7;
@@ -434,7 +479,7 @@ namespace Prog
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(504, 20);
+            this.textBox5.Location = new System.Drawing.Point(483, 7);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(100, 20);
             this.textBox5.TabIndex = 6;
@@ -445,7 +490,7 @@ namespace Prog
             this.groupBox2.Controls.Add(this.radioButton1);
             this.groupBox2.Location = new System.Drawing.Point(322, 7);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(74, 69);
+            this.groupBox2.Size = new System.Drawing.Size(74, 91);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "γ=";
@@ -474,7 +519,7 @@ namespace Prog
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(783, 7);
+            this.button3.Location = new System.Drawing.Point(654, 3);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(195, 69);
             this.button3.TabIndex = 4;
@@ -487,10 +532,11 @@ namespace Prog
             this.tabControl3.Controls.Add(this.tabPage5);
             this.tabControl3.Controls.Add(this.tabPage6);
             this.tabControl3.Controls.Add(this.tabPage7);
-            this.tabControl3.Location = new System.Drawing.Point(321, 82);
+            this.tabControl3.Controls.Add(this.tabPage8);
+            this.tabControl3.Location = new System.Drawing.Point(321, 104);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
-            this.tabControl3.Size = new System.Drawing.Size(661, 533);
+            this.tabControl3.Size = new System.Drawing.Size(661, 511);
             this.tabControl3.TabIndex = 3;
             // 
             // tabPage5
@@ -499,7 +545,7 @@ namespace Prog
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(653, 507);
+            this.tabPage5.Size = new System.Drawing.Size(653, 485);
             this.tabPage5.TabIndex = 0;
             this.tabPage5.Text = "ΖReal";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -533,7 +579,7 @@ namespace Prog
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(653, 507);
+            this.tabPage6.Size = new System.Drawing.Size(653, 485);
             this.tabPage6.TabIndex = 1;
             this.tabPage6.Text = "ZIm";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -560,6 +606,72 @@ namespace Prog
             this.chart2.Size = new System.Drawing.Size(642, 495);
             this.chart2.TabIndex = 1;
             this.chart2.Text = "chart2";
+            // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.chart3);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Size = new System.Drawing.Size(653, 485);
+            this.tabPage7.TabIndex = 2;
+            this.tabPage7.Text = "Діаграма Найквіста";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // chart3
+            // 
+            chartArea3.Name = "ChartArea1";
+            this.chart3.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart3.Legends.Add(legend3);
+            this.chart3.Location = new System.Drawing.Point(4, 3);
+            this.chart3.Name = "chart3";
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series6.Legend = "Legend1";
+            series6.Name = "Series2";
+            this.chart3.Series.Add(series5);
+            this.chart3.Series.Add(series6);
+            this.chart3.Size = new System.Drawing.Size(646, 501);
+            this.chart3.TabIndex = 0;
+            this.chart3.Text = "chart3";
+            // 
+            // tabPage8
+            // 
+            this.tabPage8.Controls.Add(this.chart4);
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Size = new System.Drawing.Size(653, 485);
+            this.tabPage8.TabIndex = 3;
+            this.tabPage8.Text = "Zall";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // chart4
+            // 
+            chartArea4.Name = "ChartArea1";
+            this.chart4.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart4.Legends.Add(legend4);
+            this.chart4.Location = new System.Drawing.Point(4, 4);
+            this.chart4.Name = "chart4";
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series7.Legend = "Legend1";
+            series7.Name = "Series1";
+            series7.YValuesPerPoint = 2;
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series8.Legend = "Legend1";
+            series8.MarkerSize = 3;
+            series8.Name = "Series2";
+            this.chart4.Series.Add(series7);
+            this.chart4.Series.Add(series8);
+            this.chart4.Size = new System.Drawing.Size(649, 478);
+            this.chart4.TabIndex = 0;
+            this.chart4.Text = "chart4";
             // 
             // dataGridView3
             // 
@@ -634,33 +746,6 @@ namespace Prog
             this.textBox2.Size = new System.Drawing.Size(260, 592);
             this.textBox2.TabIndex = 2;
             // 
-            // tabPage7
-            // 
-            this.tabPage7.Controls.Add(this.chart3);
-            this.tabPage7.Location = new System.Drawing.Point(4, 22);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(653, 507);
-            this.tabPage7.TabIndex = 2;
-            this.tabPage7.Text = "Діаграма Найквіста";
-            this.tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // chart3
-            // 
-            chartArea3.Name = "ChartArea1";
-            this.chart3.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart3.Legends.Add(legend3);
-            this.chart3.Location = new System.Drawing.Point(4, 3);
-            this.chart3.Name = "chart3";
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            this.chart3.Series.Add(series5);
-            this.chart3.Size = new System.Drawing.Size(646, 501);
-            this.chart3.TabIndex = 0;
-            this.chart3.Text = "chart3";
-            // 
             // MyProg
             // 
             this.ClientSize = new System.Drawing.Size(1296, 669);
@@ -686,11 +771,13 @@ namespace Prog
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.tabPage6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
+            this.tabPage7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
+            this.tabPage8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.tabPage7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -885,7 +972,27 @@ namespace Prog
             chart3.Series[0].Points.Clear();
             for (i = 0; i < ZReal.Count; i++)
             {
-                chart3.Series[0].Points.AddXY(ZReal[i],ZIm[i]);
+                chart3.Series[1].Points.AddXY(ZReal[i],ZIm[i]);
+            }
+            ///////
+            double temp1, temp2;
+            for (i = 1; i < Omega.Count; i++)
+            {
+                Magic = (y) => ((z) => (gt(z) / (1 + z * z * y * y)));
+                Target = Magic((Omega[i] + Omega[i - 1]) / 2);
+                temp1 = (Win(Target));
+                Magic = (y) => ((z) => ((z * y * gt(z)) / (1 + z * z * y * y)));
+                Target = Magic((Omega[i] + Omega[i - 1]) / 2);
+                temp2 = (-1 * Win(Target));
+                chart3.Series[0].Points.AddXY(temp1, temp2);
+                ////
+                Magic = (y) => ((z) => (gt(z) / (1 + z * z * y * y)));
+                Target = Magic(Omega[i]);
+                temp1=(Win(Target));
+                Magic = (y) => ((z) => ((z * y * gt(z)) / (1 + z * z * y * y)));
+                Target = Magic(Omega[i]);
+                temp2 = (-1 * Win(Target));
+                chart3.Series[0].Points.AddXY(temp1,temp2);
             }
         }
 
@@ -938,8 +1045,17 @@ namespace Prog
 
             double temp1,temp2;
             double[,] RightSide;
-            double Lim;
-                try
+            
+            double Lim, leftLim;
+            try
+            {
+                leftLim = Convert.ToDouble(textBox8.Text);
+            }
+            catch
+            {
+                leftLim = 0;
+            }
+            try
             {
                 Lim = Convert.ToDouble(textBox5.Text);
             }
@@ -1038,7 +1154,7 @@ namespace Prog
                 MaxDifferenceNeigb = 0;
                 MaxDifferenceExact = 0;
                 Sum1 = 0; Sum2 = 0;
-                for (double tau = 0; tau < Lim; tau += step)
+                for (double tau = leftLim; tau < Lim; tau += step)
                 {
                     //chart1.Series[0].Points.AddXY(tau, gt(tau));
                     //chart2.Series[0].Points.AddXY(tau, gt(tau));
@@ -1122,9 +1238,9 @@ namespace Prog
             for (i = 0; i < ZReal.Count; i++)
             {
                 a1[i, i] = (Math.PI / (4 * Omega[i])) + lambda;
-                a2[i, i] =(Math.PI/(4*Omega[i])) + lambda;
-                ab1[i, i]  = (Math.PI / (4 * Omega[i])) + 2*lambda;
-                ab2[i, i] = (Math.PI / (4 * Omega[i])) + 2*lambda;
+                a2[i, i] = (Math.PI / (4 * Omega[i])) + lambda;
+                ab1[i, i] = (Math.PI / (4 * Omega[i])) + 2 * lambda;
+                ab2[i, i] = (Math.PI / (4 * Omega[i])) + 2 * lambda;
             }
             RightSide = new double[ZReal.Count, 1];
             for (i = 0; i < ZReal.Count; i++)
@@ -1136,7 +1252,7 @@ namespace Prog
             gb = Matrixes.Solve(ab1, RightSide);
             for (i = 0; i < ZReal.Count; i++)
             {
-                RightSide[i, 0] = Gamma[i] * ZIm[i];
+                RightSide[i, 0] =Gamma[i] * ZIm[i];
             }
             g2 = Matrixes.Solve(a2, RightSide);
             gb2 = Matrixes.Solve(ab2, RightSide);
@@ -1270,6 +1386,310 @@ namespace Prog
 
             }
             //this.ProgressBar.Value = 1;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (ZReal.Count == 0)
+            {
+                textBox2.Text += "Спочатку змоделюйте опір" + Environment.NewLine;
+                return;
+            }
+            int i, j, k;
+            List<double> Gamma = new List<double>();
+            if (radioButton1.Checked)
+            {
+                for (i = 0; i < ZReal.Count; i++)
+                {
+                    Gamma.Add(1);
+                }
+            }
+            else
+            {
+                for (i = 0; i < ZReal.Count; i++)
+                {
+                    Gamma.Add(Math.Pow(Math.Sqrt(ZReal[i] * ZReal[i] + ZIm[i] * ZIm[i]), -2));
+                }
+            }
+
+            double[,] a = new double[2*ZReal.Count, 2 * ZReal.Count];
+            double[,] ab = new double[2 * ZReal.Count, 2 * ZReal.Count];
+
+
+            double BestLam = 1;
+            double lambda = 1;
+            List<double> NeighErCheb = new List<double>();
+            List<double> NeighErQuadratic = new List<double>();
+            List<double> ExactErCheb = new List<double>();
+            List<double> ExactERQuadratic = new List<double>();
+
+            double[,] g;
+            double[,] gb;
+
+            double temp1, temp2;
+            double[,] RightSide;
+
+            double Lim, leftLim;
+            try
+            {
+                leftLim = Convert.ToDouble(textBox8.Text);
+            }
+            catch
+            {
+                leftLim = 0;
+            }
+            try
+            {
+                Lim = Convert.ToDouble(textBox5.Text);
+            }
+            catch
+            {
+                Lim = 100;
+            }
+            /////
+            double step;
+            try
+            {
+                step = Convert.ToDouble(textBox7.Text);
+            }
+            catch
+            {
+                step = 0.05;
+            }
+            /////
+            while (lambda > 0.0000000000001)
+            {
+                for (i = 0; i < ZReal.Count; i++)
+                {
+                    for (j = 0; j < ZReal.Count; j++)
+                    {
+                        a[i, j] = (Math.PI * Gamma[i]) / (2 * (Omega[i] + Omega[j]));
+                        ab[i, j] = (Math.PI * Gamma[i]) / (2 * (Omega[i] + Omega[j]));
+                    }
+                }
+                for (i = 0; i < ZReal.Count; i++)
+                {
+                    for (j = ZReal.Count; j < 2*ZReal.Count; j++)
+                    {
+                        if (ZReal.Count-i == j)
+                            continue;
+                        a[i, j] = Math.Log(Omega[i]/ Omega[j- ZReal.Count]) * ((Omega[j- ZReal.Count] * Gamma[i]) / (2 * (Omega[i]* Omega[i] - Omega[j- ZReal.Count] * Omega[j - ZReal.Count])));
+                        ab[i, j] = Math.Log(Omega[i] / Omega[j- ZReal.Count]) * ((Omega[j- ZReal.Count] * Gamma[i]) / (2 * (Omega[i] * Omega[i] - Omega[j- ZReal.Count] * Omega[j - ZReal.Count])));
+                    }
+                }
+                for (i = 0; i < ZReal.Count; i++)
+                {
+                    a[i, ZReal.Count+i] = Gamma[i] / (2*Omega[i]);
+                }
+                //////
+                for (i = ZReal.Count; i < 2*ZReal.Count; i++)
+                {
+                    for (j = 0; j < ZReal.Count; j++)
+                    {
+                        if (i-ZReal.Count == j)
+                            continue;
+                        a[i, j] = Math.Log(Omega[i- ZReal.Count] / Omega[j]) * ((Omega[i- ZReal.Count] * Gamma[i- ZReal.Count]) / (2 * (Omega[i- ZReal.Count] * Omega[i - ZReal.Count] - Omega[j] * Omega[j])));
+                        ab[i, j] = Math.Log(Omega[i- ZReal.Count] / Omega[j]) * ((Omega[i- ZReal.Count] * Gamma[i- ZReal.Count]) / (2 * (Omega[i- ZReal.Count] * Omega[i - ZReal.Count] - Omega[j] * Omega[j])));
+                    }
+                }
+                for (i = ZReal.Count; i < 2 * ZReal.Count; i++)
+                {
+                    for (j = ZReal.Count; j < 2 * ZReal.Count; j++)
+                    {
+                        a[i, j] = (Math.PI * Gamma[i - ZReal.Count]) / (2 * (Omega[i - ZReal.Count] + Omega[j - ZReal.Count]));
+                        ab[i, j] = (Math.PI * Gamma[i - ZReal.Count]) / (2 * (Omega[i - ZReal.Count] + Omega[j - ZReal.Count]));
+                    }
+                }
+                for (i = 0; i < ZReal.Count; i++)
+                {
+                    a[i + ZReal.Count,i] = Gamma[i] / (2*Omega[i]);
+                }
+                //////
+                for (i = 0; i < 2*ZReal.Count; i++)
+                {
+                    a[i, i] +=lambda;
+                    ab[i, i]+= 2 * lambda;
+                }
+                //////
+                RightSide = new double[2*ZReal.Count, 1];
+                for (i = 0; i < ZReal.Count; i++)
+                {
+                    RightSide[i, 0] = Gamma[i] * ZReal[i];
+                }
+                for (i = 0; i < ZReal.Count; i++)
+                {
+                    RightSide[i+ ZReal.Count, 0] = Gamma[i] * ZIm[i];
+                }
+                g = Matrixes.Solve(a, RightSide);
+                gb = Matrixes.Solve(ab, RightSide);
+
+                chart4.Series[0].Points.Clear();
+                chart4.Series[1].Points.Clear();
+                //Func<Func<double, double>, double> Win = Integrate(0, UpperBorder, step);
+
+                double MaxDifferenceNeigb = 0;
+                double MaxDifferenceExact = 0;
+                double Sum1 = 0, Sum2 = 0;
+                for (double tau = leftLim; tau < Lim; tau += step)
+                {
+                    //chart1.Series[0].Points.AddXY(tau, gt(tau));
+                    //chart2.Series[0].Points.AddXY(tau, gt(tau));
+                    temp1 = 0;
+                    for (i = 0; i < ZReal.Count; i++)
+                    {
+                        temp1 += g[i, 0] / (1 + Omega[i] * Omega[i] * tau * tau);
+                    }
+                    for (i = 0; i < ZReal.Count; i++)
+                    {
+                        temp1 += (g[i+ ZReal.Count, 0]*Omega[i]*tau) / (1 + Omega[i] * Omega[i] * tau * tau);
+                    }
+                    temp2 = 0;
+                    for (i = 0; i < ZReal.Count; i++)
+                    {
+                        temp2 += gb[i, 0] / (1 + Omega[i] * Omega[i] * tau * tau);
+                    }
+                    for (i = 0; i < ZReal.Count; i++)
+                    {
+                        temp2 += (gb[i + ZReal.Count, 0] * Omega[i] * tau) / (1 + Omega[i] * Omega[i] * tau * tau);
+                    }
+                    if (MaxDifferenceNeigb < Math.Abs(temp1 - temp2))
+                    {
+                        MaxDifferenceNeigb = Math.Abs(temp1 - temp2);
+                    }
+                    if (MaxDifferenceExact < Math.Abs(temp1 - gt(tau)))
+                    {
+                        MaxDifferenceExact = Math.Abs(temp1 - gt(tau));
+                    }
+                    Sum1 += Math.Pow(temp1 - temp2, 2);
+                    Sum2 += Math.Pow(temp1 - gt(tau), 2);
+
+                    //chart1.Series[1].Points.AddXY(tau, temp1);
+                    ///////
+                }
+                NeighErCheb.Add(MaxDifferenceNeigb);
+                NeighErQuadratic.Add(Math.Sqrt(Sum1 / (Lim * 20)));
+                ExactErCheb.Add(MaxDifferenceExact);
+                ExactERQuadratic.Add(Math.Sqrt(Sum2 / (Lim * 20)));
+                ///////////////////////////////
+                MaxDifferenceNeigb = 0;
+                MaxDifferenceExact = 0;
+                Sum1 = 0; Sum2 = 0;
+                ///////////////////////
+                if (checkBox1.Checked)
+                {
+                    textBox2.Text += ("Похибки для λ=" + lambda + ":" + Environment.NewLine);
+                    textBox2.Text += ("  Макс для сусідів =" + NeighErCheb[NeighErCheb.Count - 1] + Environment.NewLine);
+                    textBox2.Text += ("  Квадратична для сусідів =" + NeighErQuadratic[NeighErQuadratic.Count - 1] + Environment.NewLine);
+                    textBox2.Text += ("  Макс для точного =" + ExactErCheb[ExactErCheb.Count - 1] + Environment.NewLine);
+                    textBox2.Text += ("  Квадратична для точного =" + ExactERQuadratic[ExactERQuadratic.Count - 1] + Environment.NewLine);
+                }
+                lambda /= 2;
+            }
+            int MinVal = NeighErCheb.FindIndex(x => x == NeighErCheb.Min());
+            Console.WriteLine(MinVal + "   ");
+
+            lambda = Math.Pow(2, -1 * MinVal);
+
+            for (i = 0; i < ZReal.Count; i++)
+            {
+                for (j = 0; j < ZReal.Count; j++)
+                {
+                    a[i, j] = (Math.PI * Gamma[i]) / (2 * (Omega[i] + Omega[j]));
+                    ab[i, j] = (Math.PI * Gamma[i]) / (2 * (Omega[i] + Omega[j]));
+                }
+            }
+            for (i = 0; i < ZReal.Count; i++)
+            {
+                for (j = ZReal.Count; j < 2 * ZReal.Count; j++)
+                {
+                    if (ZReal.Count - i == j)
+                        continue;
+                    a[i, j] = Math.Log(Omega[i] / Omega[j - ZReal.Count]) * ((Omega[j - ZReal.Count] * Gamma[i]) / (2 * (Omega[i] * Omega[i] - Omega[j - ZReal.Count] * Omega[j - ZReal.Count])));
+                    ab[i, j] = Math.Log(Omega[i] / Omega[j - ZReal.Count]) * ((Omega[j - ZReal.Count] * Gamma[i]) / (2 * (Omega[i] * Omega[i] - Omega[j - ZReal.Count] * Omega[j - ZReal.Count])));
+                }
+            }
+            for (i = 0; i < ZReal.Count; i++)
+            {
+                a[i, ZReal.Count + i] = Gamma[i] / (2 * Omega[i]);
+            }
+            //////
+            for (i = ZReal.Count; i < 2 * ZReal.Count; i++)
+            {
+                for (j = 0; j < ZReal.Count; j++)
+                {
+                    if (i - ZReal.Count == j)
+                        continue;
+                    a[i, j] = Math.Log(Omega[i - ZReal.Count] / Omega[j]) * ((Omega[i - ZReal.Count] * Gamma[i - ZReal.Count]) / (2 * (Omega[i - ZReal.Count] * Omega[i - ZReal.Count] - Omega[j] * Omega[j])));
+                    ab[i, j] = Math.Log(Omega[i - ZReal.Count] / Omega[j]) * ((Omega[i - ZReal.Count] * Gamma[i - ZReal.Count]) / (2 * (Omega[i - ZReal.Count] * Omega[i - ZReal.Count] - Omega[j] * Omega[j])));
+                }
+            }
+            for (i = ZReal.Count; i < 2 * ZReal.Count; i++)
+            {
+                for (j = ZReal.Count; j < 2 * ZReal.Count; j++)
+                {
+                    a[i, j] = (Math.PI * Gamma[i - ZReal.Count]) / (2 * (Omega[i- ZReal.Count] + Omega[j - ZReal.Count]));
+                    ab[i, j] = (Math.PI * Gamma[i - ZReal.Count]) / (2 * (Omega[i - ZReal.Count] + Omega[j - ZReal.Count]));
+                }
+            }
+            for (i = 0; i < ZReal.Count; i++)
+            {
+                a[i + ZReal.Count, i] = Gamma[i] / (2 * Omega[i]);
+            }
+            //////
+            for (i = 0; i < 2 * ZReal.Count; i++)
+            {
+                a[i, i] += lambda;
+                ab[i, i] += 2 * lambda;
+            }
+            //////
+            RightSide = new double[2*ZReal.Count, 1];
+            for (i = 0; i < ZReal.Count; i++)
+            {
+                RightSide[i, 0] = Gamma[i] * ZReal[i];
+            }
+            for (i = 0; i < ZReal.Count; i++)
+            {
+                RightSide[i + ZReal.Count, 0] =  Gamma[i] * ZIm[i];
+            }
+            g = Matrixes.Solve(a, RightSide);
+            gb = Matrixes.Solve(ab, RightSide);
+
+            chart4.Series[0].Points.Clear();
+            chart4.Series[1].Points.Clear();
+            //Func<Func<double, double>, double> Win = Integrate(0, UpperBorder, step);
+
+
+            for (double tau = leftLim; tau < Lim; tau += step)
+            {
+                chart4.Series[0].Points.AddXY(tau, gt(tau));
+                temp1 = 0;
+                for (i = 0; i < ZReal.Count; i++)
+                {
+                    temp1 += g[i, 0] / (1 + Omega[i] * Omega[i] * tau * tau);
+                }
+                for (i = 0; i < ZReal.Count; i++)
+                {
+                    temp1 += (g[i + ZReal.Count, 0] * Omega[i] * tau) / (1 + Omega[i] * Omega[i] * tau * tau);
+                }
+                temp2 = 0;
+                for (i = 0; i < ZReal.Count; i++)
+                {
+                    temp2 += gb[i, 0] / (1 + Omega[i] * Omega[i] * tau * tau);
+                }
+                for (i = 0; i < ZReal.Count; i++)
+                {
+                    temp2 += (gb[i + ZReal.Count, 0] * Omega[i] * tau) / (1 + Omega[i] * Omega[i] * tau * tau);
+                }
+                chart4.Series[1].Points.AddXY(tau, temp1);
+                ///////
+
+            }
+
+            textBox2.Text += ("Похибки для оптимального λ(Real)=" + lambda + ":" + Environment.NewLine);
+            textBox2.Text += ("  Макс для сусідів =" + NeighErCheb[MinVal] + Environment.NewLine);
+            textBox2.Text += ("  Квадратична для сусідів =" + NeighErQuadratic[MinVal] + Environment.NewLine);
+            textBox2.Text += ("  Макс для точного =" + ExactErCheb[MinVal] + Environment.NewLine);
+            textBox2.Text += ("  Квалратична для точного =" + ExactERQuadratic[MinVal] + Environment.NewLine);
         }
     }
 }
