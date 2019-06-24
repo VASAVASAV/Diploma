@@ -70,8 +70,10 @@ namespace Prog
         private System.Windows.Forms.DataVisualization.Charting.Chart chart4;
         private CheckBox checkBox2;
         private Button button7;
-        //Func<double, double> gt = x => Math.Exp(-1 * Math.Pow(Math.Log(x), 2));
-        Func<double, double> gt = x => Math.Exp(-1*Math.Pow(x-10,2)/18) / (3*Math.Sqrt(2 * Math.PI));
+        private Button button8;
+
+        Func<double, double> gt = x => Math.Exp(-1 * Math.Pow(Math.Log(x), 2));
+        //Func<double, double> gt = x => Math.Exp(-1*Math.Pow(x-10,2)/18) / (3*Math.Sqrt(2 * Math.PI));
         //Func<double, double> gt = x => (x >= 0 && x < 1) ? (Math.Exp(x-1)) : ((x >= 1 && x < 4) ? (Math.Exp(x - 4)):(0));
         //Func<double, double> gt = x => Math.Exp(-1 * Math.Pow(Math.Log(x), 2)) + 0.65*Math.Exp(-1 * Math.Pow(Math.Log(x) -5, 2));
         //Func<double, double> gt = x => Math.Exp(-1 * Math.Pow(Math.Log(x), 2)) + 0.75* Math.Exp(-1 * (Math.Pow(Math.Log(x+3), 2)-1));
@@ -84,22 +86,22 @@ namespace Prog
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -124,6 +126,8 @@ namespace Prog
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
@@ -154,7 +158,6 @@ namespace Prog
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button7 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -402,6 +405,7 @@ namespace Prog
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button8);
             this.tabPage2.Controls.Add(this.button7);
             this.tabPage2.Controls.Add(this.button6);
             this.tabPage2.Controls.Add(this.label7);
@@ -424,11 +428,31 @@ namespace Prog
             this.tabPage2.Text = "Знаходження рішення";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(574, 62);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(74, 36);
+            this.button8.TabIndex = 16;
+            this.button8.Text = "Квазіоптимальність";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(574, 3);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(74, 50);
+            this.button7.TabIndex = 15;
+            this.button7.Text = "Розв\'язати (додатковий метод)";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // button6
             // 
             this.button6.Location = new System.Drawing.Point(855, 3);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(124, 69);
+            this.button6.Size = new System.Drawing.Size(124, 50);
             this.button6.TabIndex = 14;
             this.button6.Text = "Розв\'язати (додатковий метод)";
             this.button6.UseVisualStyleBackColor = true;
@@ -447,7 +471,7 @@ namespace Prog
             // 
             this.textBox8.Location = new System.Drawing.Point(483, 33);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
+            this.textBox8.Size = new System.Drawing.Size(85, 20);
             this.textBox8.TabIndex = 12;
             // 
             // button5
@@ -483,7 +507,7 @@ namespace Prog
             // 
             this.textBox7.Location = new System.Drawing.Point(483, 59);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
+            this.textBox7.Size = new System.Drawing.Size(85, 20);
             this.textBox7.TabIndex = 8;
             // 
             // label4
@@ -499,7 +523,7 @@ namespace Prog
             // 
             this.textBox5.Location = new System.Drawing.Point(483, 7);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
+            this.textBox5.Size = new System.Drawing.Size(85, 20);
             this.textBox5.TabIndex = 6;
             // 
             // groupBox2
@@ -539,7 +563,7 @@ namespace Prog
             // 
             this.button3.Location = new System.Drawing.Point(654, 3);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(195, 69);
+            this.button3.Size = new System.Drawing.Size(195, 50);
             this.button3.TabIndex = 4;
             this.button3.Text = "Розв\'язати";
             this.button3.UseVisualStyleBackColor = true;
@@ -570,23 +594,23 @@ namespace Prog
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea5.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.chart1.Legends.Add(legend5);
             this.chart1.Location = new System.Drawing.Point(4, 7);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.Name = "Series2";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series2.Legend = "Legend1";
-            series2.MarkerSize = 3;
-            series2.Name = "Series3";
-            this.chart1.Series.Add(series1);
-            this.chart1.Series.Add(series2);
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series9.Legend = "Legend1";
+            series9.Name = "Series2";
+            series10.ChartArea = "ChartArea1";
+            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series10.Legend = "Legend1";
+            series10.MarkerSize = 3;
+            series10.Name = "Series3";
+            this.chart1.Series.Add(series9);
+            this.chart1.Series.Add(series10);
             this.chart1.Size = new System.Drawing.Size(643, 494);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -604,23 +628,23 @@ namespace Prog
             // 
             // chart2
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart2.Legends.Add(legend2);
+            chartArea6.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.chart2.Legends.Add(legend6);
             this.chart2.Location = new System.Drawing.Point(5, 6);
             this.chart2.Name = "chart2";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Legend = "Legend1";
-            series3.Name = "Series2";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series4.Legend = "Legend1";
-            series4.MarkerSize = 3;
-            series4.Name = "Series3";
-            this.chart2.Series.Add(series3);
-            this.chart2.Series.Add(series4);
+            series11.ChartArea = "ChartArea1";
+            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series11.Legend = "Legend1";
+            series11.Name = "Series2";
+            series12.ChartArea = "ChartArea1";
+            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series12.Legend = "Legend1";
+            series12.MarkerSize = 3;
+            series12.Name = "Series3";
+            this.chart2.Series.Add(series11);
+            this.chart2.Series.Add(series12);
             this.chart2.Size = new System.Drawing.Size(642, 495);
             this.chart2.TabIndex = 1;
             this.chart2.Text = "chart2";
@@ -637,22 +661,22 @@ namespace Prog
             // 
             // chart3
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chart3.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart3.Legends.Add(legend3);
+            chartArea7.Name = "ChartArea1";
+            this.chart3.ChartAreas.Add(chartArea7);
+            legend7.Name = "Legend1";
+            this.chart3.Legends.Add(legend7);
             this.chart3.Location = new System.Drawing.Point(4, 3);
             this.chart3.Name = "chart3";
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series6.Legend = "Legend1";
-            series6.Name = "Series2";
-            this.chart3.Series.Add(series5);
-            this.chart3.Series.Add(series6);
+            series13.ChartArea = "ChartArea1";
+            series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series13.Legend = "Legend1";
+            series13.Name = "Series1";
+            series14.ChartArea = "ChartArea1";
+            series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series14.Legend = "Legend1";
+            series14.Name = "Series2";
+            this.chart3.Series.Add(series13);
+            this.chart3.Series.Add(series14);
             this.chart3.Size = new System.Drawing.Size(646, 501);
             this.chart3.TabIndex = 0;
             this.chart3.Text = "chart3";
@@ -669,24 +693,24 @@ namespace Prog
             // 
             // chart4
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chart4.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart4.Legends.Add(legend4);
+            chartArea8.Name = "ChartArea1";
+            this.chart4.ChartAreas.Add(chartArea8);
+            legend8.Name = "Legend1";
+            this.chart4.Legends.Add(legend8);
             this.chart4.Location = new System.Drawing.Point(4, 4);
             this.chart4.Name = "chart4";
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series7.Legend = "Legend1";
-            series7.Name = "Series1";
-            series7.YValuesPerPoint = 2;
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series8.Legend = "Legend1";
-            series8.MarkerSize = 3;
-            series8.Name = "Series2";
-            this.chart4.Series.Add(series7);
-            this.chart4.Series.Add(series8);
+            series15.ChartArea = "ChartArea1";
+            series15.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series15.Legend = "Legend1";
+            series15.Name = "Series1";
+            series15.YValuesPerPoint = 2;
+            series16.ChartArea = "ChartArea1";
+            series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series16.Legend = "Legend1";
+            series16.MarkerSize = 3;
+            series16.Name = "Series2";
+            this.chart4.Series.Add(series15);
+            this.chart4.Series.Add(series16);
             this.chart4.Size = new System.Drawing.Size(649, 478);
             this.chart4.TabIndex = 0;
             this.chart4.Text = "chart4";
@@ -763,16 +787,6 @@ namespace Prog
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(260, 592);
             this.textBox2.TabIndex = 2;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(589, 3);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(59, 69);
-            this.button7.TabIndex = 15;
-            this.button7.Text = "Розв\'язати (додатковий метод)";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // MyProg
             // 
@@ -1079,7 +1093,6 @@ namespace Prog
             double[,] ab2 = new double[ZReal.Count, ZReal.Count];
 
 
-            double BestLam = 1;
             double lambda = 16;
             List<double> NeighErCheb = new List<double>();
             List<double> NeighErQuadratic = new List<double>();
@@ -1304,12 +1317,12 @@ namespace Prog
                 }
                 lambda /= 2;
             }
-            int MinVal = ExactErCheb.FindIndex(x=>x== ExactErCheb.Min());
-            int MinVal2 = ExactErCheb2.FindIndex(x => x == ExactErCheb2.Min());
+            int MinVal = ExactERQuadratic.FindIndex(x=>x== ExactERQuadratic.Min());
+            int MinVal2 = ExactERQuadratic2.FindIndex(x => x == ExactERQuadratic2.Min());
             Console.WriteLine(MinVal + "   " + MinVal2);
 
             lambda = Math.Pow(2,-1*MinVal);
-
+            double lambda2 = Math.Pow(2, -1 * MinVal2);
             for (i = 0; i < ZReal.Count; i++)
             {
                 for (j = 0; j < ZReal.Count; j++)
@@ -1322,10 +1335,10 @@ namespace Prog
             }
             for (i = 0; i < ZReal.Count; i++)
             {
-                a1[i, i] = (Math.PI / (4 * Omega[i])) + lambda;
-                a2[i, i] = (Math.PI / (4 * Omega[i])) + lambda;
-                ab1[i, i] = (Math.PI / (4 * Omega[i])) + 2 * lambda;
-                ab2[i, i] = (Math.PI / (4 * Omega[i])) + 2 * lambda;
+                a1[i, i] += lambda;
+                a2[i, i] += lambda;
+                ab1[i, i]+=2 * lambda2;
+                ab2[i, i]+=2 * lambda2;
             }
             RightSide = new double[ZReal.Count, 1];
             for (i = 0; i < ZReal.Count; i++)
@@ -1392,7 +1405,7 @@ namespace Prog
            textBox2.Text+=("  Квадратична для точного =" + ExactERQuadratic[MinVal] + Environment.NewLine);
             textBox2.Text += ("Відносна для точного =" + ExactErRel[MinVal] + Environment.NewLine);
 
-            textBox2.Text += ("Похибки для оптимального λ(Im)=" + lambda + ":" + Environment.NewLine);
+            textBox2.Text += ("Похибки для оптимального λ(Im)=" + lambda2 + ":" + Environment.NewLine);
            textBox2.Text += ("  Макс для сусідів =" + NeighErCheb2[MinVal2] + Environment.NewLine);
            textBox2.Text += ("  Квадратична для сусідів =" + NeighErQuadratic2[MinVal2] + Environment.NewLine);
            textBox2.Text += ("  Макс для точного =" + ExactErCheb2[MinVal2] + Environment.NewLine);
@@ -2157,6 +2170,381 @@ namespace Prog
                 }
             }
             return new Tuple<double, double>(mini, minj);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if (ZReal.Count == 0)
+            {
+                textBox2.Text += "Спочатку змоделюйте опір" + Environment.NewLine;
+                return;
+            }
+            int i, j, k;
+            List<double> Gamma = new List<double>();
+            if (radioButton1.Checked)
+            {
+                for (i = 0; i < ZReal.Count; i++)
+                {
+                    Gamma.Add(1);
+                }
+            }
+            else
+            {
+                for (i = 0; i < ZReal.Count; i++)
+                {
+                    Gamma.Add(Math.Pow(Math.Sqrt(ZReal[i] * ZReal[i] + ZIm[i] * ZIm[i]), -2));
+                }
+            }
+
+            double[,] a1 = new double[ZReal.Count, ZReal.Count];
+            double[,] a2 = new double[ZReal.Count, ZReal.Count];
+            double[,] ab1 = new double[ZReal.Count, ZReal.Count];
+            double[,] ab2 = new double[ZReal.Count, ZReal.Count];
+
+
+            double lambda = 16;
+            List<double> NeighErCheb = new List<double>();
+            List<double> NeighErQuadratic = new List<double>();
+            List<double> ExactErCheb = new List<double>();
+            List<double> ExactERQuadratic = new List<double>();
+            List<double> NeighErRel = new List<double>();
+            List<double> ExactErRel = new List<double>();
+
+
+            List<double> NeighErCheb2 = new List<double>();
+            List<double> NeighErQuadratic2 = new List<double>();
+            List<double> ExactErCheb2 = new List<double>();
+            List<double> ExactERQuadratic2 = new List<double>();
+            List<double> NeighErRel2 = new List<double>();
+            List<double> ExactErRel2 = new List<double>();
+
+            double[,] g;
+            double[,] g2;
+            double[,] gb;
+            double[,] gb2;
+
+            double temp1, temp2;
+            double[,] RightSide;
+
+            double Lim, leftLim;
+            try
+            {
+                leftLim = Convert.ToDouble(textBox8.Text);
+            }
+            catch
+            {
+                leftLim = 0;
+            }
+            try
+            {
+                Lim = Convert.ToDouble(textBox5.Text);
+            }
+            catch
+            {
+                Lim = 100;
+            }
+            /////
+            double step;
+            try
+            {
+                step = Convert.ToDouble(textBox7.Text);
+            }
+            catch
+            {
+                step = 0.05;
+            }
+            /////
+            double Norm;
+            while (lambda > 0.0000000000001)
+            {
+                for (i = 0; i < ZReal.Count; i++)
+                {
+                    for (j = 0; j < ZReal.Count; j++)
+                    {
+                        a1[i, j] = (Math.PI * Gamma[i]) / (2 * (Omega[i] + Omega[j]));
+                        a2[i, j] = (Math.PI * Gamma[i]) / (2 * (Omega[i] + Omega[j]));
+                        ab1[i, j] = (Math.PI * Gamma[i]) / (2 * (Omega[i] + Omega[j]));
+                        ab2[i, j] = (Math.PI * Gamma[i]) / (2 * (Omega[i] + Omega[j]));
+                    }
+                }
+                for (i = 0; i < ZReal.Count; i++)
+                {
+                    a1[i, i] = (Math.PI / (4 * Omega[i])) + lambda;
+                    a2[i, i] = (Math.PI / (4 * Omega[i])) + lambda;
+                    ab1[i, i] = (Math.PI / (4 * Omega[i])) + 2 * lambda;
+                    ab2[i, i] = (Math.PI / (4 * Omega[i])) + 2 * lambda;
+                }
+                RightSide = new double[ZReal.Count, 1];
+                for (i = 0; i < ZReal.Count; i++)
+                {
+                    RightSide[i, 0] = Gamma[i] * ZReal[i];
+                }
+
+                g = Matrixes.Solve(a1, RightSide);
+                gb = Matrixes.Solve(ab1, RightSide);
+                for (i = 0; i < ZReal.Count; i++)
+                {
+                    RightSide[i, 0] = Gamma[i] * ZIm[i];
+                }
+                g2 = Matrixes.Solve(a2, RightSide);
+                gb2 = Matrixes.Solve(ab2, RightSide);
+
+
+                chart1.Series[0].Points.Clear();
+                chart1.Series[1].Points.Clear();
+                chart2.Series[0].Points.Clear();
+                chart2.Series[1].Points.Clear();
+                //Func<Func<double, double>, double> Win = Integrate(0, UpperBorder, step);
+
+                double MaxDifferenceNeigb = 0;
+                double MaxDifferenceExact = 0;
+                double MaxDifferenceNeigbRel = 0;
+                double MaxDifferenceExactRel = 0;
+                double Sum1 = 0, Sum2 = 0;
+                chart1.ChartAreas[0].AxisX.Minimum = leftLim;
+                chart2.ChartAreas[0].AxisX.Minimum = leftLim;
+                Norm = 0;
+                for (double tau = leftLim; tau < Lim; tau += step)
+                {
+                    if (Norm < Math.Abs(gt(tau)))
+                    {
+                        Norm = Math.Abs(gt(tau));
+                    }
+                }
+                for (double tau = leftLim; tau < Lim; tau += step)
+                {
+                    //chart1.Series[0].Points.AddXY(tau, gt(tau));
+                    //chart2.Series[0].Points.AddXY(tau, gt(tau));
+                    temp1 = 0;
+                    for (i = 0; i < ZReal.Count; i++)
+                    {
+                        temp1 += g[i, 0] / (1 + Omega[i] * Omega[i] * tau * tau);
+                    }
+                    temp2 = 0;
+                    for (i = 0; i < ZReal.Count; i++)
+                    {
+                        temp2 += gb[i, 0] / (1 + Omega[i] * Omega[i] * tau * tau);
+                    }
+                    if (MaxDifferenceNeigb < Math.Abs(temp1 - temp2))
+                    {
+                        MaxDifferenceNeigb = Math.Abs(temp1 - temp2);
+                    }
+                    if (MaxDifferenceExact < Math.Abs(temp1 - gt(tau)))
+                    {
+                        MaxDifferenceExact = Math.Abs(temp1 - gt(tau));
+                    }
+                    ///////
+                    if (gt(tau) != 0 && MaxDifferenceExactRel < Math.Abs((temp1 - gt(tau))) / Norm)
+                    {
+                        MaxDifferenceExactRel = Math.Abs((temp1 - gt(tau))) / Norm;
+                    }
+                    ///////
+                    Sum1 += Math.Pow(temp1 - temp2, 2);
+                    Sum2 += Math.Pow(temp1 - gt(tau), 2);
+
+                    //chart1.Series[1].Points.AddXY(tau, temp1);
+                    ///////
+                }
+                NeighErCheb.Add(MaxDifferenceNeigb);
+                NeighErQuadratic.Add(Math.Sqrt(Sum1 / (Lim * 20)));
+                ExactErCheb.Add(MaxDifferenceExact);
+                ExactERQuadratic.Add(Math.Sqrt(Sum2 / (Lim * 20)));
+                ExactErRel.Add(MaxDifferenceExactRel);
+                ///////////////////////////////
+                MaxDifferenceExactRel = 0;
+                MaxDifferenceNeigb = 0;
+                MaxDifferenceExact = 0;
+                Sum1 = 0; Sum2 = 0;
+                for (double tau = leftLim; tau < Lim; tau += step)
+                {
+                    //chart1.Series[0].Points.AddXY(tau, gt(tau));
+                    //chart2.Series[0].Points.AddXY(tau, gt(tau));
+                    temp1 = 0;
+                    for (i = 0; i < ZReal.Count; i++)
+                    {
+                        temp1 += g[i, 0] / (1 + Omega[i] * Omega[i] * tau * tau);
+                    }
+                    temp2 = 0;
+                    for (i = 0; i < ZReal.Count; i++)
+                    {
+                        temp2 += gb[i, 0] / (1 + Omega[i] * Omega[i] * tau * tau);
+                    }
+                    if (MaxDifferenceNeigb < Math.Abs(temp1 - temp2))
+                    {
+                        MaxDifferenceNeigb = Math.Abs(temp1 - temp2);
+                    }
+                    if (MaxDifferenceExact < Math.Abs(temp1 - gt(tau)))
+                    {
+                        MaxDifferenceExact = Math.Abs(temp1 - gt(tau));
+                    }
+                    /////
+                    if (gt(tau) != 0 && MaxDifferenceExactRel < Math.Abs((temp1 - gt(tau))) / Norm)
+                    {
+                        MaxDifferenceExactRel = Math.Abs((temp1 - gt(tau))) / Norm;
+                    }                    /////
+                    Sum1 += Math.Pow(temp1 - temp2, 2);
+                    Sum2 += Math.Pow(temp1 - gt(tau), 2);
+
+                    //chart1.Series[1].Points.AddXY(tau, temp1);
+                    ///////
+
+                    temp1 = 0;
+                    for (i = 0; i < ZReal.Count; i++)
+                    {
+                        temp1 += (g2[i, 0] * Omega[i] * tau) / (1 + Omega[i] * Omega[i] * tau * tau);
+                    }
+                    temp2 = 0;
+                    for (i = 0; i < ZReal.Count; i++)
+                    {
+                        temp2 += (gb2[i, 0] * Omega[i] * tau) / (1 + Omega[i] * Omega[i] * tau * tau);
+                    }
+                    if (MaxDifferenceNeigb < Math.Abs(temp1 - temp2))
+                    {
+                        MaxDifferenceNeigb = Math.Abs(temp1 - temp2);
+                    }
+                    if (MaxDifferenceExact < Math.Abs(temp1 - gt(tau)))
+                    {
+                        MaxDifferenceExact = Math.Abs(temp1 - gt(tau));
+                    }
+                    Sum1 += Math.Pow(temp1 - temp2, 2);
+                    Sum2 += Math.Pow(temp1 - gt(tau), 2);
+                    ///chart2.Series[1].Points.AddXY(tau, temp1);
+                }
+                NeighErCheb2.Add(MaxDifferenceNeigb);
+                NeighErQuadratic2.Add(Math.Sqrt(Sum1 / (Lim * 20)));
+                ExactErCheb2.Add(MaxDifferenceExact);
+                ExactERQuadratic2.Add(Math.Sqrt(Sum2 / (Lim * 20)));
+                ExactErRel2.Add(MaxDifferenceExactRel);
+                ///////////////////////
+                if (checkBox1.Checked)
+                {
+                    textBox2.Text += ("Похибки для λ=" + lambda + ":" + Environment.NewLine);
+                    textBox2.Text += ("  Макс для сусідів =" + NeighErCheb[NeighErCheb.Count - 1] + Environment.NewLine);
+                    textBox2.Text += ("  Квадратична для сусідів =" + NeighErQuadratic[NeighErQuadratic.Count - 1] + Environment.NewLine);
+                    textBox2.Text += ("  Макс для точного =" + ExactErCheb[ExactErCheb.Count - 1] + Environment.NewLine);
+                    textBox2.Text += ("  Квадратична для точного =" + ExactERQuadratic[ExactERQuadratic.Count - 1] + Environment.NewLine);
+                }
+                lambda /= 2;
+            }
+            int MinVal=-1;
+            int MinVal2=-1;
+            for (i = 3; i < NeighErCheb.Count; i++)
+            {
+                if (NeighErCheb[i] > NeighErCheb[i - 1])
+                {
+                    MinVal = i;
+                    break;
+                }
+            }
+            for (i =3; i < NeighErCheb2.Count;i++)
+            {
+                if (NeighErCheb2[i] > NeighErCheb2[i - 1])
+                {
+                    MinVal2 = i;
+                    break;
+                }
+            }
+            if (MinVal == -1)
+            {
+                MinVal = NeighErCheb.Count-1;
+            }
+            if (MinVal2 == -1)
+            {
+                MinVal2 = NeighErCheb.Count-1;
+            }
+            Console.WriteLine(MinVal + "   " + MinVal2);
+
+            lambda = Math.Pow(2, -1 * MinVal);
+            double lambda2 = Math.Pow(2, -1 * MinVal2);
+
+            for (i = 0; i < ZReal.Count; i++)
+            {
+                for (j = 0; j < ZReal.Count; j++)
+                {
+                    a1[i, j] = (Math.PI * Gamma[i]) / (2 * (Omega[i] + Omega[j]));
+                    a2[i, j] = (Math.PI * Gamma[i]) / (2 * (Omega[i] + Omega[j]));
+                    ab1[i, j] = (Math.PI * Gamma[i]) / (2 * (Omega[i] + Omega[j]));
+                    ab2[i, j] = (Math.PI * Gamma[i]) / (2 * (Omega[i] + Omega[j]));
+                }
+            }
+            for (i = 0; i < ZReal.Count; i++)
+            {
+                a1[i, i] = (Math.PI / (4 * Omega[i])) + lambda;
+                a2[i, i] = (Math.PI / (4 * Omega[i])) + lambda2;
+                ab1[i, i] = (Math.PI / (4 * Omega[i])) + 2 * lambda;
+                ab2[i, i] = (Math.PI / (4 * Omega[i])) + 2 * lambda2;
+            }
+            RightSide = new double[ZReal.Count, 1];
+            for (i = 0; i < ZReal.Count; i++)
+            {
+                RightSide[i, 0] = Gamma[i] * ZReal[i];
+            }
+
+            g = Matrixes.Solve(a1, RightSide);
+            gb = Matrixes.Solve(ab1, RightSide);
+            for (i = 0; i < ZReal.Count; i++)
+            {
+                RightSide[i, 0] = Gamma[i] * ZIm[i];
+            }
+            g2 = Matrixes.Solve(a2, RightSide);
+            gb2 = Matrixes.Solve(ab2, RightSide);
+
+            chart1.Series[0].Points.Clear();
+            chart1.Series[1].Points.Clear();
+            chart2.Series[0].Points.Clear();
+            chart2.Series[1].Points.Clear();
+            //Func<Func<double, double>, double> Win = Integrate(0, UpperBorder, step);
+            Norm = 0;
+            for (double tau = leftLim; tau < Lim; tau += step)
+            {
+                if (Norm < Math.Abs(gt(tau)))
+                {
+                    Norm = Math.Abs(gt(tau));
+                }
+            }
+            for (double tau = leftLim; tau < Lim; tau += step)
+            {
+                chart1.Series[0].Points.AddXY(tau, gt(tau));
+                chart2.Series[0].Points.AddXY(tau, gt(tau));
+                temp1 = 0;
+                for (i = 0; i < ZReal.Count; i++)
+                {
+                    temp1 += g[i, 0] / (1 + Omega[i] * Omega[i] * tau * tau);
+                }
+                temp2 = 0;
+                for (i = 0; i < ZReal.Count; i++)
+                {
+                    temp2 += gb[i, 0] / (1 + Omega[i] * Omega[i] * tau * tau);
+                }
+                chart1.Series[1].Points.AddXY(tau, temp1);
+                ///////
+
+                temp1 = 0;
+                for (i = 0; i < ZReal.Count; i++)
+                {
+                    temp1 += (g2[i, 0] * Omega[i] * tau) / (1 + Omega[i] * Omega[i] * tau * tau);
+                }
+                temp2 = 0;
+                for (i = 0; i < ZReal.Count; i++)
+                {
+                    temp2 += (gb2[i, 0] * Omega[i] * tau) / (1 + Omega[i] * Omega[i] * tau * tau);
+                }
+                chart2.Series[1].Points.AddXY(tau, temp1);
+            }
+
+            textBox2.Text += ("Похибки для оптимального λ(Real)=" + lambda + ":" + Environment.NewLine);
+            textBox2.Text += ("  Макс для сусідів =" + NeighErCheb[MinVal] + Environment.NewLine);
+            textBox2.Text += ("  Квадратична для сусідів =" + NeighErQuadratic[MinVal] + Environment.NewLine);
+            textBox2.Text += ("  Макс для точного =" + ExactErCheb[MinVal] + Environment.NewLine);
+            textBox2.Text += ("  Квадратична для точного =" + ExactERQuadratic[MinVal] + Environment.NewLine);
+            textBox2.Text += ("Відносна для точного =" + ExactErRel[MinVal] + Environment.NewLine);
+
+            textBox2.Text += ("Похибки для оптимального λ(Im)=" + lambda2 + ":" + Environment.NewLine);
+            textBox2.Text += ("  Макс для сусідів =" + NeighErCheb2[MinVal2] + Environment.NewLine);
+            textBox2.Text += ("  Квадратична для сусідів =" + NeighErQuadratic2[MinVal2] + Environment.NewLine);
+            textBox2.Text += ("  Макс для точного =" + ExactErCheb2[MinVal2] + Environment.NewLine);
+            textBox2.Text += ("  Квадратична для точного =" + ExactERQuadratic2[MinVal2] + Environment.NewLine);
+            textBox2.Text += ("Відносна для точного =" + ExactErRel2[MinVal2] + Environment.NewLine);
         }
     }
 
