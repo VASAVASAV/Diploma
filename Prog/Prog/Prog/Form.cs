@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MathParserNet;
 
 namespace Prog
 {
@@ -961,11 +962,16 @@ namespace Prog
             {
                 try
                 {
-
+                    Func<string,Func<double, double>> tamp = timp => 
+                    {
+                        var lol = new Parser();
+                        return x => { lol.AddVariable("x", x); var lil = lol.SimplifyDouble(timp); lol.RemoveAllVariables(); return lil; };
+                    };
+                    gt = tamp(textBox3.Text);
                 }
                 catch
                 {
-
+                    Console.WriteLine("diediedie");
                 }
             }
             try

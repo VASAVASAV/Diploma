@@ -16,3 +16,5 @@ F:\work\Diploma\Dip\Diploma\Prog\Prog\Prog\obj\Debug\Prog.csproj.GenerateResourc
 F:\work\Diploma\Dip\Diploma\Prog\Prog\Prog\obj\Debug\Prog.csproj.CoreCompileInputs.cache
 F:\work\Diploma\Dip\Diploma\Prog\Prog\Prog\obj\Debug\Prog.exe
 F:\work\Diploma\Dip\Diploma\Prog\Prog\Prog\obj\Debug\Prog.pdb
+F:\work\Diploma\Dip\Diploma\Prog\Prog\Prog\bin\Debug\MathParserNet.dll
+F:\work\Diploma\Dip\Diploma\Prog\Prog\Prog\obj\Debug\Prog.csproj.CopyComplete
