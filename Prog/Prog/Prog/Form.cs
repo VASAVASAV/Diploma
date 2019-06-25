@@ -71,7 +71,9 @@ namespace Prog
         private CheckBox checkBox2;
         private Button button7;
         private Button button8;
-
+        private Button button9;
+        private TabPage tabPage9;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart5;
         Func<double, double> gt = x => Math.Exp(-1 * Math.Pow(Math.Log(x), 2));
         //Func<double, double> gt = x => Math.Exp(-1*Math.Pow(x-10,2)/18) / (3*Math.Sqrt(2 * Math.PI));
         //Func<double, double> gt = x => (x >= 0 && x < 1) ? (Math.Exp(x-1)) : ((x >= 1 && x < 4) ? (Math.Exp(x - 4)):(0));
@@ -86,22 +88,26 @@ namespace Prog
 
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -121,6 +127,7 @@ namespace Prog
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button9 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -158,6 +165,8 @@ namespace Prog
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.chart5 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -179,6 +188,8 @@ namespace Prog
             ((System.ComponentModel.ISupportInitialize)(this.chart4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.tabPage9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart5)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -208,7 +219,7 @@ namespace Prog
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(985, 618);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Ввід ω";
+            this.tabPage1.Text = "Ввід ω і моделювання опору";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // checkBox2
@@ -356,6 +367,7 @@ namespace Prog
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.button9);
             this.tabPage4.Controls.Add(this.button2);
             this.tabPage4.Controls.Add(this.dataGridView2);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
@@ -366,9 +378,19 @@ namespace Prog
             this.tabPage4.Text = "Моделювання";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(795, 59);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(166, 47);
+            this.button9.TabIndex = 9;
+            this.button9.Text = " Згенерувати ω (рівномірно)";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(617, 6);
+            this.button2.Location = new System.Drawing.Point(795, 6);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(166, 47);
             this.button2.TabIndex = 8;
@@ -430,9 +452,9 @@ namespace Prog
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(574, 62);
+            this.button8.Location = new System.Drawing.Point(625, 55);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(74, 36);
+            this.button8.Size = new System.Drawing.Size(157, 43);
             this.button8.TabIndex = 16;
             this.button8.Text = "Квазіоптимальність";
             this.button8.UseVisualStyleBackColor = true;
@@ -440,19 +462,19 @@ namespace Prog
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(574, 3);
+            this.button7.Location = new System.Drawing.Point(788, 50);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(74, 50);
+            this.button7.Size = new System.Drawing.Size(190, 48);
             this.button7.TabIndex = 15;
-            this.button7.Text = "Розв\'язати (додатковий метод)";
+            this.button7.Text = "Розв\'язати (додатковий метод з мультипараметричною оптимізацією)";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(855, 3);
+            this.button6.Location = new System.Drawing.Point(788, 3);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(124, 50);
+            this.button6.Size = new System.Drawing.Size(190, 46);
             this.button6.TabIndex = 14;
             this.button6.Text = "Розв\'язати (додатковий метод)";
             this.button6.UseVisualStyleBackColor = true;
@@ -561,9 +583,9 @@ namespace Prog
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(654, 3);
+            this.button3.Location = new System.Drawing.Point(625, 3);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(195, 50);
+            this.button3.Size = new System.Drawing.Size(157, 46);
             this.button3.TabIndex = 4;
             this.button3.Text = "Розв\'язати";
             this.button3.UseVisualStyleBackColor = true;
@@ -575,6 +597,7 @@ namespace Prog
             this.tabControl3.Controls.Add(this.tabPage6);
             this.tabControl3.Controls.Add(this.tabPage7);
             this.tabControl3.Controls.Add(this.tabPage8);
+            this.tabControl3.Controls.Add(this.tabPage9);
             this.tabControl3.Location = new System.Drawing.Point(321, 104);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
@@ -594,23 +617,23 @@ namespace Prog
             // 
             // chart1
             // 
-            chartArea5.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.chart1.Legends.Add(legend5);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(4, 7);
             this.chart1.Name = "chart1";
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series9.Legend = "Legend1";
-            series9.Name = "Series2";
-            series10.ChartArea = "ChartArea1";
-            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series10.Legend = "Legend1";
-            series10.MarkerSize = 3;
-            series10.Name = "Series3";
-            this.chart1.Series.Add(series9);
-            this.chart1.Series.Add(series10);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Оригінальна функція";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series2.Legend = "Legend1";
+            series2.MarkerSize = 3;
+            series2.Name = "Реконструйована функція";
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(643, 494);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -628,23 +651,23 @@ namespace Prog
             // 
             // chart2
             // 
-            chartArea6.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.chart2.Legends.Add(legend6);
+            chartArea2.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart2.Legends.Add(legend2);
             this.chart2.Location = new System.Drawing.Point(5, 6);
             this.chart2.Name = "chart2";
-            series11.ChartArea = "ChartArea1";
-            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series11.Legend = "Legend1";
-            series11.Name = "Series2";
-            series12.ChartArea = "ChartArea1";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series12.Legend = "Legend1";
-            series12.MarkerSize = 3;
-            series12.Name = "Series3";
-            this.chart2.Series.Add(series11);
-            this.chart2.Series.Add(series12);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.Name = "Series2";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series4.Legend = "Legend1";
+            series4.MarkerSize = 3;
+            series4.Name = "Series3";
+            this.chart2.Series.Add(series3);
+            this.chart2.Series.Add(series4);
             this.chart2.Size = new System.Drawing.Size(642, 495);
             this.chart2.TabIndex = 1;
             this.chart2.Text = "chart2";
@@ -661,22 +684,22 @@ namespace Prog
             // 
             // chart3
             // 
-            chartArea7.Name = "ChartArea1";
-            this.chart3.ChartAreas.Add(chartArea7);
-            legend7.Name = "Legend1";
-            this.chart3.Legends.Add(legend7);
+            chartArea3.Name = "ChartArea1";
+            this.chart3.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart3.Legends.Add(legend3);
             this.chart3.Location = new System.Drawing.Point(4, 3);
             this.chart3.Name = "chart3";
-            series13.ChartArea = "ChartArea1";
-            series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series13.Legend = "Legend1";
-            series13.Name = "Series1";
-            series14.ChartArea = "ChartArea1";
-            series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series14.Legend = "Legend1";
-            series14.Name = "Series2";
-            this.chart3.Series.Add(series13);
-            this.chart3.Series.Add(series14);
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series6.Legend = "Legend1";
+            series6.Name = "Series2";
+            this.chart3.Series.Add(series5);
+            this.chart3.Series.Add(series6);
             this.chart3.Size = new System.Drawing.Size(646, 501);
             this.chart3.TabIndex = 0;
             this.chart3.Text = "chart3";
@@ -693,24 +716,24 @@ namespace Prog
             // 
             // chart4
             // 
-            chartArea8.Name = "ChartArea1";
-            this.chart4.ChartAreas.Add(chartArea8);
-            legend8.Name = "Legend1";
-            this.chart4.Legends.Add(legend8);
+            chartArea4.Name = "ChartArea1";
+            this.chart4.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart4.Legends.Add(legend4);
             this.chart4.Location = new System.Drawing.Point(4, 4);
             this.chart4.Name = "chart4";
-            series15.ChartArea = "ChartArea1";
-            series15.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series15.Legend = "Legend1";
-            series15.Name = "Series1";
-            series15.YValuesPerPoint = 2;
-            series16.ChartArea = "ChartArea1";
-            series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series16.Legend = "Legend1";
-            series16.MarkerSize = 3;
-            series16.Name = "Series2";
-            this.chart4.Series.Add(series15);
-            this.chart4.Series.Add(series16);
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series7.Legend = "Legend1";
+            series7.Name = "Series1";
+            series7.YValuesPerPoint = 2;
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series8.Legend = "Legend1";
+            series8.MarkerSize = 3;
+            series8.Name = "Series2";
+            this.chart4.Series.Add(series7);
+            this.chart4.Series.Add(series8);
             this.chart4.Size = new System.Drawing.Size(649, 478);
             this.chart4.TabIndex = 0;
             this.chart4.Text = "chart4";
@@ -788,6 +811,39 @@ namespace Prog
             this.textBox2.Size = new System.Drawing.Size(260, 592);
             this.textBox2.TabIndex = 2;
             // 
+            // tabPage9
+            // 
+            this.tabPage9.Controls.Add(this.chart5);
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Size = new System.Drawing.Size(653, 485);
+            this.tabPage9.TabIndex = 4;
+            this.tabPage9.Text = "Похибка";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // chart5
+            // 
+            chartArea5.Name = "ChartArea1";
+            this.chart5.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.chart5.Legends.Add(legend5);
+            this.chart5.Location = new System.Drawing.Point(3, 3);
+            this.chart5.Name = "chart5";
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series9.Legend = "Legend1";
+            series9.Name = "Оригінальна функція";
+            series10.ChartArea = "ChartArea1";
+            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series10.Legend = "Legend1";
+            series10.MarkerSize = 3;
+            series10.Name = "Реконструйована функція";
+            this.chart5.Series.Add(series9);
+            this.chart5.Series.Add(series10);
+            this.chart5.Size = new System.Drawing.Size(647, 479);
+            this.chart5.TabIndex = 1;
+            this.chart5.Text = "chart5";
+            // 
             // MyProg
             // 
             this.ClientSize = new System.Drawing.Size(1296, 669);
@@ -820,6 +876,8 @@ namespace Prog
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabPage9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -899,6 +957,17 @@ namespace Prog
             Console.WriteLine(Tools.CountIntegral(new Func<double, double>(x => Math.Sin(x)), 0, Math.PI, 0.1));
             Console.WriteLine(Tools.CountIntegral(new Func<double, double>(x => Math.Sin(x)), 0, Math.PI, 0.01));
             Console.WriteLine(Tools.CountIntegral(new Func<double, double>(x => Math.Sin(x)), 0, Math.PI, 0.001));*/
+            if (textBox3.Text != "")
+            {
+                try
+                {
+
+                }
+                catch
+                {
+
+                }
+            }
             try
             {
                 Convert.ToInt32(textBox1.Text);
@@ -1012,6 +1081,7 @@ namespace Prog
                 textBox2.Text += "Done" + Environment.NewLine;
 
             chart3.Series[0].Points.Clear();
+            chart3.Series[1].Points.Clear();
             for (i = 0; i < ZReal.Count; i++)
             {
                 chart3.Series[1].Points.AddXY(ZReal[i],ZIm[i]);
@@ -2545,6 +2615,38 @@ namespace Prog
             textBox2.Text += ("  Макс для точного =" + ExactErCheb2[MinVal2] + Environment.NewLine);
             textBox2.Text += ("  Квадратична для точного =" + ExactERQuadratic2[MinVal2] + Environment.NewLine);
             textBox2.Text += ("Відносна для точного =" + ExactErRel2[MinVal2] + Environment.NewLine);
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            int Num;
+            try
+            {
+                Num = Convert.ToInt32(textBox1.Text);
+                if (Num < 1)
+                {
+                    throw new Exception();
+                }
+            }
+            catch
+            {
+                textBox2.Text += "Невірний ввід" + Environment.NewLine;
+                return;
+            }
+            if (Num % 4 != 0)
+            {
+                textBox2.Text += "Для цього методу необхідна кратність чотирьом" + Environment.NewLine;
+                return;
+            }
+            double Min, Max;
+            Min = 0.01;
+            Max = 100;
+            double val = Min;
+            for (int j = 0; j < Num; j++)
+            {
+                val = Min + j * ((Max - Min) / Num);
+                dataGridView2.Rows[j].Cells[1].Value = "" + val;
+            }
         }
     }
 
