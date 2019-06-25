@@ -75,10 +75,13 @@ namespace Prog
         private Button button9;
         private TabPage tabPage9;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart5;
+        private Label label8;
+        private TextBox textBox9;
+        private Button button10;
         Func<double, double> gt = x => Math.Exp(-1 * Math.Pow(Math.Log(x), 2));
         //Func<double, double> gt = x => Math.Exp(-1*Math.Pow(x-10,2)/18) / (3*Math.Sqrt(2 * Math.PI));
-        //Func<double, double> gt = x => (x >= 0 && x < 1) ? (Math.Exp(x-1)) : ((x >= 1 && x < 4) ? (Math.Exp(x - 4)):(0));
-        //Func<double, double> gt = x => Math.Exp(-1 * Math.Pow(Math.Log(x), 2)) + 0.65*Math.Exp(-1 * Math.Pow(Math.Log(x) -5, 2));
+        //Func<double, double> gt = x => (x >= 0 && x < 1) ? (Math.Exp(x - 1)) : ((x >= 1 && x < 4) ? (Math.Exp(x - 4)):(0));
+//Func<double, double> gt = x => Math.Exp(-1 * Math.Pow(Math.Log(x), 2)) + 0.65*Math.Exp(-1 * Math.Pow(Math.Log(x)-2, 2));
         //Func<double, double> gt = x => Math.Exp(-1 * Math.Pow(Math.Log(x), 2)) + 0.75* Math.Exp(-1 * (Math.Pow(Math.Log(x+3), 2)-1));
         //Func<double, double> gt = x => Math.Exp(-1 * Math.Pow(Math.Log(x), 2)) + 0.75 * Math.Exp(-1 * (Math.Pow(Math.Log(x + 3), 2) - 1));
 
@@ -111,6 +114,8 @@ namespace Prog
             System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox9 = new System.Windows.Forms.TextBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -134,6 +139,7 @@ namespace Prog
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button10 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -158,6 +164,8 @@ namespace Prog
             this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.chart5 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -166,8 +174,6 @@ namespace Prog
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.chart5 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -187,10 +193,10 @@ namespace Prog
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
             this.tabPage8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.tabPage9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -200,11 +206,13 @@ namespace Prog
             this.tabControl1.Location = new System.Drawing.Point(13, 13);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(993, 644);
+            this.tabControl1.Size = new System.Drawing.Size(1138, 644);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label8);
+            this.tabPage1.Controls.Add(this.textBox9);
             this.tabPage1.Controls.Add(this.checkBox2);
             this.tabPage1.Controls.Add(this.groupBox4);
             this.tabPage1.Controls.Add(this.label3);
@@ -218,10 +226,26 @@ namespace Prog
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(985, 618);
+            this.tabPage1.Size = new System.Drawing.Size(1130, 618);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Ввід ω і моделювання опору";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(7, 40);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(43, 13);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "декади";
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(56, 37);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(100, 20);
+            this.textBox9.TabIndex = 9;
             // 
             // checkBox2
             // 
@@ -323,10 +347,10 @@ namespace Prog
             // 
             this.tabControl2.Controls.Add(this.tabPage3);
             this.tabControl2.Controls.Add(this.tabPage4);
-            this.tabControl2.Location = new System.Drawing.Point(7, 49);
+            this.tabControl2.Location = new System.Drawing.Point(7, 71);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(975, 563);
+            this.tabControl2.Size = new System.Drawing.Size(975, 541);
             this.tabControl2.TabIndex = 0;
             // 
             // tabPage3
@@ -335,7 +359,7 @@ namespace Prog
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(967, 537);
+            this.tabPage3.Size = new System.Drawing.Size(967, 515);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Ручне введення";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -374,7 +398,7 @@ namespace Prog
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(967, 537);
+            this.tabPage4.Size = new System.Drawing.Size(967, 515);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "Моделювання";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -428,6 +452,7 @@ namespace Prog
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button10);
             this.tabPage2.Controls.Add(this.button8);
             this.tabPage2.Controls.Add(this.button7);
             this.tabPage2.Controls.Add(this.button6);
@@ -446,10 +471,20 @@ namespace Prog
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(985, 618);
+            this.tabPage2.Size = new System.Drawing.Size(1130, 618);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Знаходження рішення";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(983, 3);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(134, 46);
+            this.button10.TabIndex = 17;
+            this.button10.Text = "Очистити";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button8
             // 
@@ -602,7 +637,7 @@ namespace Prog
             this.tabControl3.Location = new System.Drawing.Point(321, 104);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
-            this.tabControl3.Size = new System.Drawing.Size(661, 511);
+            this.tabControl3.Size = new System.Drawing.Size(803, 511);
             this.tabControl3.TabIndex = 3;
             // 
             // tabPage5
@@ -611,7 +646,7 @@ namespace Prog
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(653, 485);
+            this.tabPage5.Size = new System.Drawing.Size(795, 485);
             this.tabPage5.TabIndex = 0;
             this.tabPage5.Text = "ΖReal";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -635,7 +670,7 @@ namespace Prog
             series2.Name = "Реконструйована функція";
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(643, 494);
+            this.chart1.Size = new System.Drawing.Size(785, 494);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
@@ -645,7 +680,7 @@ namespace Prog
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(653, 485);
+            this.tabPage6.Size = new System.Drawing.Size(795, 485);
             this.tabPage6.TabIndex = 1;
             this.tabPage6.Text = "ZIm";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -669,7 +704,7 @@ namespace Prog
             series4.Name = "Series3";
             this.chart2.Series.Add(series3);
             this.chart2.Series.Add(series4);
-            this.chart2.Size = new System.Drawing.Size(642, 495);
+            this.chart2.Size = new System.Drawing.Size(784, 495);
             this.chart2.TabIndex = 1;
             this.chart2.Text = "chart2";
             // 
@@ -678,7 +713,7 @@ namespace Prog
             this.tabPage7.Controls.Add(this.chart3);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(653, 485);
+            this.tabPage7.Size = new System.Drawing.Size(795, 485);
             this.tabPage7.TabIndex = 2;
             this.tabPage7.Text = "Діаграма Найквіста";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -701,7 +736,7 @@ namespace Prog
             series6.Name = "Series2";
             this.chart3.Series.Add(series5);
             this.chart3.Series.Add(series6);
-            this.chart3.Size = new System.Drawing.Size(646, 501);
+            this.chart3.Size = new System.Drawing.Size(788, 501);
             this.chart3.TabIndex = 0;
             this.chart3.Text = "chart3";
             // 
@@ -710,7 +745,7 @@ namespace Prog
             this.tabPage8.Controls.Add(this.chart4);
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(653, 485);
+            this.tabPage8.Size = new System.Drawing.Size(795, 485);
             this.tabPage8.TabIndex = 3;
             this.tabPage8.Text = "Zall";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -735,9 +770,44 @@ namespace Prog
             series8.Name = "Series2";
             this.chart4.Series.Add(series7);
             this.chart4.Series.Add(series8);
-            this.chart4.Size = new System.Drawing.Size(649, 478);
+            this.chart4.Size = new System.Drawing.Size(788, 478);
             this.chart4.TabIndex = 0;
             this.chart4.Text = "chart4";
+            // 
+            // tabPage9
+            // 
+            this.tabPage9.Controls.Add(this.chart5);
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Size = new System.Drawing.Size(795, 485);
+            this.tabPage9.TabIndex = 4;
+            this.tabPage9.Text = "Похибка";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // chart5
+            // 
+            chartArea5.Name = "ChartArea1";
+            this.chart5.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.chart5.Legends.Add(legend5);
+            this.chart5.Location = new System.Drawing.Point(3, 3);
+            this.chart5.Name = "chart5";
+            series9.BorderWidth = 2;
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series9.Legend = "Legend1";
+            series9.Name = "Оптимальне  значення";
+            series10.BorderWidth = 2;
+            series10.ChartArea = "ChartArea1";
+            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series10.Legend = "Legend1";
+            series10.MarkerSize = 3;
+            series10.Name = "Квазіоптимальне  значення";
+            this.chart5.Series.Add(series9);
+            this.chart5.Series.Add(series10);
+            this.chart5.Size = new System.Drawing.Size(789, 479);
+            this.chart5.TabIndex = 1;
+            this.chart5.Text = "chart5";
             // 
             // dataGridView3
             // 
@@ -787,7 +857,7 @@ namespace Prog
             // 
             this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Location = new System.Drawing.Point(1012, 13);
+            this.groupBox1.Location = new System.Drawing.Point(1157, 13);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(272, 644);
             this.groupBox1.TabIndex = 1;
@@ -812,42 +882,9 @@ namespace Prog
             this.textBox2.Size = new System.Drawing.Size(260, 592);
             this.textBox2.TabIndex = 2;
             // 
-            // tabPage9
-            // 
-            this.tabPage9.Controls.Add(this.chart5);
-            this.tabPage9.Location = new System.Drawing.Point(4, 22);
-            this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(653, 485);
-            this.tabPage9.TabIndex = 4;
-            this.tabPage9.Text = "Похибка";
-            this.tabPage9.UseVisualStyleBackColor = true;
-            // 
-            // chart5
-            // 
-            chartArea5.Name = "ChartArea1";
-            this.chart5.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.chart5.Legends.Add(legend5);
-            this.chart5.Location = new System.Drawing.Point(3, 3);
-            this.chart5.Name = "chart5";
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series9.Legend = "Legend1";
-            series9.Name = "Оригінальна функція";
-            series10.ChartArea = "ChartArea1";
-            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series10.Legend = "Legend1";
-            series10.MarkerSize = 3;
-            series10.Name = "Реконструйована функція";
-            this.chart5.Series.Add(series9);
-            this.chart5.Series.Add(series10);
-            this.chart5.Size = new System.Drawing.Size(647, 479);
-            this.chart5.TabIndex = 1;
-            this.chart5.Text = "chart5";
-            // 
             // MyProg
             // 
-            this.ClientSize = new System.Drawing.Size(1296, 669);
+            this.ClientSize = new System.Drawing.Size(1441, 669);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tabControl1);
             this.Name = "MyProg";
@@ -874,11 +911,11 @@ namespace Prog
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
             this.tabPage8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart4)).EndInit();
+            this.tabPage9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.tabPage9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -911,6 +948,7 @@ namespace Prog
         private void button2_Click(object sender, EventArgs e)
         {
             int Num;
+            int decs;
             try
             {
                 Num = Convert.ToInt32(textBox1.Text);
@@ -924,20 +962,43 @@ namespace Prog
                 textBox2.Text += "Невірний ввід" + Environment.NewLine;
                 return;
             }
-            if (Num % 4 != 0)
+            ///////////////
+            try
             {
-                textBox2.Text += "Для цього методу необхідна кратність чотирьом" + Environment.NewLine;
-                return;
+                decs = Convert.ToInt32(textBox9.Text);
+                if (decs < 1)
+                {
+                    throw new Exception();
+                }
             }
-            Num /= 4;
+            catch
+            {
+                decs = 4;
+            }
+            ///////////////
+            double[] Length = new double[decs];
+            int NumLeft = Num;
+            int CurPlace = 0;
+            while(NumLeft>0)
+            {
+                Length[CurPlace]++;
+                CurPlace++;
+                if (CurPlace == decs)
+                {
+                    CurPlace = 0;
+                }
+                NumLeft--;
+            }
             double Min, Max;
             Min = 0.01;
             Max = 0.1;
-            for (int i = 0; i < 4; i++)
+            CurPlace = 0;
+            for (int i = 0; i < decs; i++)
             {
-                for (int j = 0; j < Num; j++)
+                for (int j = 0; j < Length[i]; j++)
                 {
-                    dataGridView2.Rows[i * Num + j].Cells[1].Value = ""+(Min+j*(Max-Min)/Num);
+                    dataGridView2.Rows[CurPlace].Cells[1].Value = ""+(Min+j*(Max-Min)/Length[i]);
+                    CurPlace++;
                 }
                 Max *= 10;
                 Min *= 10;
@@ -1393,8 +1454,8 @@ namespace Prog
                 }
                 lambda /= 2;
             }
-            int MinVal = ExactERQuadratic.FindIndex(x=>x== ExactERQuadratic.Min());
-            int MinVal2 = ExactERQuadratic2.FindIndex(x => x == ExactERQuadratic2.Min());
+            int MinVal = ExactErCheb.FindIndex(x=>x== ExactErCheb.Min());
+            int MinVal2 = ExactErCheb2.FindIndex(x => x == ExactErCheb2.Min());
             Console.WriteLine(MinVal + "   " + MinVal2);
 
             lambda = Math.Pow(2,-1*MinVal);
@@ -1474,19 +1535,22 @@ namespace Prog
                 chart2.Series[1].Points.AddXY(tau, temp1);
             }
 
-           textBox2.Text+=("Похибки для оптимального λ(Real)=" + lambda + ":" + Environment.NewLine);
-           textBox2.Text+=("  Макс для сусідів =" + NeighErCheb[MinVal] + Environment.NewLine);
-           textBox2.Text+=("  Квадратична для сусідів =" + NeighErQuadratic[MinVal] + Environment.NewLine);
-           textBox2.Text+=("  Макс для точного =" + ExactErCheb[MinVal] + Environment.NewLine);
-           textBox2.Text+=("  Квадратична для точного =" + ExactERQuadratic[MinVal] + Environment.NewLine);
-            textBox2.Text += ("Відносна для точного =" + ExactErRel[MinVal] + Environment.NewLine);
+            //  textBox2.Text+=("Похибки для оптимального λ(Real)=" + lambda + ":" + Environment.NewLine);
+            //  textBox2.Text+=("  Макс для сусідів =" + NeighErCheb[MinVal] + Environment.NewLine);
+            //  textBox2.Text+=("  Квадратична для сусідів =" + NeighErQuadratic[MinVal] + Environment.NewLine);
+            //  textBox2.Text+=("  Макс для точного =" + ExactErCheb[MinVal] + Environment.NewLine);
+            //  textBox2.Text+=("  Квадратична для точного =" + ExactERQuadratic[MinVal] + Environment.NewLine);
+            //   textBox2.Text += ("Відносна для точного =" + ExactErRel[MinVal] + Environment.NewLine);
+            //
+            //   textBox2.Text += ("Похибки для оптимального λ(Im)=" + lambda2 + ":" + Environment.NewLine);
+            //  textBox2.Text += ("  Макс для сусідів =" + NeighErCheb2[MinVal2] + Environment.NewLine);
+            //  textBox2.Text += ("  Квадратична для сусідів =" + NeighErQuadratic2[MinVal2] + Environment.NewLine);
+            //  textBox2.Text += ("  Макс для точного =" + ExactErCheb2[MinVal2] + Environment.NewLine);
+            //  textBox2.Text += ("  Квадратична для точного =" + ExactERQuadratic2[MinVal2] + Environment.NewLine);
+            //   textBox2.Text += ("Відносна для точного =" + ExactErRel2[MinVal2] + Environment.NewLine);
 
-            textBox2.Text += ("Похибки для оптимального λ(Im)=" + lambda2 + ":" + Environment.NewLine);
-           textBox2.Text += ("  Макс для сусідів =" + NeighErCheb2[MinVal2] + Environment.NewLine);
-           textBox2.Text += ("  Квадратична для сусідів =" + NeighErQuadratic2[MinVal2] + Environment.NewLine);
-           textBox2.Text += ("  Макс для точного =" + ExactErCheb2[MinVal2] + Environment.NewLine);
-           textBox2.Text += ("  Квадратична для точного =" + ExactERQuadratic2[MinVal2] + Environment.NewLine);
-            textBox2.Text += ("Відносна для точного =" + ExactErRel2[MinVal2] + Environment.NewLine);
+            textBox2.Text += (ZReal.Count+ "  " + ExactErCheb[MinVal] + "  ");
+            chart5.Series[0].Points.AddXY(ZReal.Count, ExactErCheb[MinVal]);
 
         }
 
@@ -2502,32 +2566,8 @@ namespace Prog
                 }
                 lambda /= 2;
             }
-            int MinVal=-1;
-            int MinVal2=-1;
-            for (i = 3; i < NeighErCheb.Count; i++)
-            {
-                if (NeighErCheb[i] > NeighErCheb[i - 1])
-                {
-                    MinVal = i;
-                    break;
-                }
-            }
-            for (i =3; i < NeighErCheb2.Count;i++)
-            {
-                if (NeighErCheb2[i] > NeighErCheb2[i - 1])
-                {
-                    MinVal2 = i;
-                    break;
-                }
-            }
-            if (MinVal == -1)
-            {
-                MinVal = NeighErCheb.Count-1;
-            }
-            if (MinVal2 == -1)
-            {
-                MinVal2 = NeighErCheb.Count-1;
-            }
+            int MinVal = NeighErCheb.FindIndex(x => x == NeighErCheb.Min());
+            int MinVal2 = NeighErCheb2.FindIndex(x => x == NeighErCheb2.Min());
             Console.WriteLine(MinVal + "   " + MinVal2);
 
             lambda = Math.Pow(2, -1 * MinVal);
@@ -2608,19 +2648,22 @@ namespace Prog
                 chart2.Series[1].Points.AddXY(tau, temp1);
             }
 
-            textBox2.Text += ("Похибки для оптимального λ(Real)=" + lambda + ":" + Environment.NewLine);
-            textBox2.Text += ("  Макс для сусідів =" + NeighErCheb[MinVal] + Environment.NewLine);
-            textBox2.Text += ("  Квадратична для сусідів =" + NeighErQuadratic[MinVal] + Environment.NewLine);
-            textBox2.Text += ("  Макс для точного =" + ExactErCheb[MinVal] + Environment.NewLine);
-            textBox2.Text += ("  Квадратична для точного =" + ExactERQuadratic[MinVal] + Environment.NewLine);
-            textBox2.Text += ("Відносна для точного =" + ExactErRel[MinVal] + Environment.NewLine);
+            //textBox2.Text += ("Похибки для оптимального λ(Real)=" + lambda + ":" + Environment.NewLine);
+            //textBox2.Text += ("  Макс для сусідів =" + NeighErCheb[MinVal] + Environment.NewLine);
+            //textBox2.Text += ("  Квадратична для сусідів =" + NeighErQuadratic[MinVal] + Environment.NewLine);
+            //textBox2.Text += ("  Макс для точного =" + ExactErCheb[MinVal] + Environment.NewLine);
+            //textBox2.Text += ("  Квадратична для точного =" + ExactERQuadratic[MinVal] + Environment.NewLine);
+            //textBox2.Text += ("Відносна для точного =" + ExactErRel[MinVal] + Environment.NewLine);
+            //
+            //textBox2.Text += ("Похибки для оптимального λ(Im)=" + lambda2 + ":" + Environment.NewLine);
+            //textBox2.Text += ("  Макс для сусідів =" + NeighErCheb2[MinVal2] + Environment.NewLine);
+            //textBox2.Text += ("  Квадратична для сусідів =" + NeighErQuadratic2[MinVal2] + Environment.NewLine);
+            //textBox2.Text += ("  Макс для точного =" + ExactErCheb2[MinVal2] + Environment.NewLine);
+            //textBox2.Text += ("  Квадратична для точного =" + ExactERQuadratic2[MinVal2] + Environment.NewLine);
+            //textBox2.Text += ("Відносна для точного =" + ExactErRel2[MinVal2] + Environment.NewLine);
 
-            textBox2.Text += ("Похибки для оптимального λ(Im)=" + lambda2 + ":" + Environment.NewLine);
-            textBox2.Text += ("  Макс для сусідів =" + NeighErCheb2[MinVal2] + Environment.NewLine);
-            textBox2.Text += ("  Квадратична для сусідів =" + NeighErQuadratic2[MinVal2] + Environment.NewLine);
-            textBox2.Text += ("  Макс для точного =" + ExactErCheb2[MinVal2] + Environment.NewLine);
-            textBox2.Text += ("  Квадратична для точного =" + ExactERQuadratic2[MinVal2] + Environment.NewLine);
-            textBox2.Text += ("Відносна для точного =" + ExactErRel2[MinVal2] + Environment.NewLine);
+            textBox2.Text += (ExactErCheb[MinVal] + "  ");
+            chart5.Series[1].Points.AddXY(ZReal.Count, ExactErCheb[MinVal]);
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -2653,6 +2696,12 @@ namespace Prog
                 val = Min + j * ((Max - Min) / Num);
                 dataGridView2.Rows[j].Cells[1].Value = "" + val;
             }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            chart5.Series[0].Points.Clear();
+            chart5.Series[1].Points.Clear();
         }
     }
 
