@@ -1246,10 +1246,10 @@ namespace Prog
             List<double> NeighErRel2 = new List<double>();
             List<double> ExactErRel2 = new List<double>();
 
-            double[,] g;
-            double[,] g2;
-            double[,] gb;
-            double[,] gb2;
+            double[,] g = new double[1,1];
+            double[,] g2 = new double[1, 1];
+            double[,] gb = new double[1, 1];
+            double[,] gb2 = new double[1, 1];
 
             double temp1,temp2;
             double[,] RightSide;
@@ -1460,37 +1460,44 @@ namespace Prog
 
             lambda = Math.Pow(2,-1*MinVal);
             double lambda2 = Math.Pow(2, -1 * MinVal2);
-            for (i = 0; i < ZReal.Count; i++)
+            DateTime lol = DateTime.Now;
+            for (var lil = 0; lil < 25; lil++)
             {
-                for (j = 0; j < ZReal.Count; j++)
+                for (i = 0; i < ZReal.Count; i++)
                 {
-                    a1[i, j] = (Math.PI * Gamma[i]) / (2 * (Omega[i] + Omega[j]));
-                    a2[i, j] = (Math.PI * Gamma[i]) / (2 *  (Omega[i] + Omega[j]));
-                    ab1[i, j] = (Math.PI * Gamma[i]) / (2 * (Omega[i] + Omega[j]));
-                    ab2[i, j] = (Math.PI * Gamma[i]) / (2 *  (Omega[i] + Omega[j]));
+                    for (j = 0; j < ZReal.Count; j++)
+                    {
+                        a1[i, j] = (Math.PI * Gamma[i]) / (2 * (Omega[i] + Omega[j]));
+                        a2[i, j] = (Math.PI * Gamma[i]) / (2 * (Omega[i] + Omega[j]));
+                        ab1[i, j] = (Math.PI * Gamma[i]) / (2 * (Omega[i] + Omega[j]));
+                        ab2[i, j] = (Math.PI * Gamma[i]) / (2 * (Omega[i] + Omega[j]));
+                    }
                 }
-            }
-            for (i = 0; i < ZReal.Count; i++)
-            {
-                a1[i, i] += lambda;
-                a2[i, i] += lambda;
-                ab1[i, i]+=2 * lambda2;
-                ab2[i, i]+=2 * lambda2;
-            }
-            RightSide = new double[ZReal.Count, 1];
-            for (i = 0; i < ZReal.Count; i++)
-            {
-                RightSide[i, 0] = Gamma[i] * ZReal[i];
+                for (i = 0; i < ZReal.Count; i++)
+                {
+                    a1[i, i] += lambda;
+                    a2[i, i] += lambda;
+                    ab1[i, i] += 2 * lambda2;
+                    ab2[i, i] += 2 * lambda2;
+                }
+                RightSide = new double[ZReal.Count, 1];
+                for (i = 0; i < ZReal.Count; i++)
+                {
+                    RightSide[i, 0] = Gamma[i] * ZReal[i];
+                }
+
+                g = Matrixes.Solve(a1, RightSide);
+                gb = Matrixes.Solve(ab1, RightSide);
+                for (i = 0; i < ZReal.Count; i++)
+                {
+                    RightSide[i, 0] = Gamma[i] * ZIm[i];
+                }
+                g2 = Matrixes.Solve(a2, RightSide);
+                gb2 = Matrixes.Solve(ab2, RightSide);
             }
 
-            g = Matrixes.Solve(a1, RightSide);
-            gb = Matrixes.Solve(ab1, RightSide);
-            for (i = 0; i < ZReal.Count; i++)
-            {
-                RightSide[i, 0] =Gamma[i] * ZIm[i];
-            }
-            g2 = Matrixes.Solve(a2, RightSide);
-            gb2 = Matrixes.Solve(ab2, RightSide);
+            textBox2.Text += (ZReal.Count + "  " + (DateTime.Now-lol).TotalMilliseconds/25+ "  ");
+            chart5.Series[0].Points.AddXY(ZReal.Count, (DateTime.Now-lol).TotalMilliseconds / 25);
 
             chart1.Series[0].Points.Clear();
             chart1.Series[1].Points.Clear();
@@ -1549,8 +1556,7 @@ namespace Prog
             //  textBox2.Text += ("  Квадратична для точного =" + ExactERQuadratic2[MinVal2] + Environment.NewLine);
             //   textBox2.Text += ("Відносна для точного =" + ExactErRel2[MinVal2] + Environment.NewLine);
 
-            textBox2.Text += (ZReal.Count+ "  " + ExactErCheb[MinVal] + "  ");
-            chart5.Series[0].Points.AddXY(ZReal.Count, ExactErCheb[MinVal]);
+
 
         }
 
@@ -1670,8 +1676,8 @@ namespace Prog
             List<double> ExactERQuadratic = new List<double>();
             List<double> ExactErRel = new List<double>();
 
-            double[,] g;
-            double[,] gb;
+            double[,] g = new double[1, 1];
+            double[,] gb = new double[1, 1];
 
             double temp1, temp2;
             double[,] RightSide;
@@ -1842,71 +1848,76 @@ namespace Prog
             int MinVal = NeighErCheb.FindIndex(x => x == NeighErCheb.Min());
             Console.WriteLine(MinVal + "   ");
 
+            var lol = DateTime.Now;
             lambda = Math.Pow(2, -1 * MinVal);
-
-            for (i = 0; i < ZReal.Count; i++)
+            for (var lil = 0; lil < 25; lil++)
             {
-                for (j = 0; j < ZReal.Count; j++)
+                for (i = 0; i < ZReal.Count; i++)
                 {
-                    a[i, j] = (Math.PI * Gamma[i]) / (2 * (Omega[i] + Omega[j]));
-                    ab[i, j] = (Math.PI * Gamma[i]) / (2 * (Omega[i] + Omega[j]));
+                    for (j = 0; j < ZReal.Count; j++)
+                    {
+                        a[i, j] = (Math.PI * Gamma[i]) / (2 * (Omega[i] + Omega[j]));
+                        ab[i, j] = (Math.PI * Gamma[i]) / (2 * (Omega[i] + Omega[j]));
+                    }
                 }
-            }
-            for (i = 0; i < ZReal.Count; i++)
-            {
-                for (j = ZReal.Count; j < 2 * ZReal.Count; j++)
+                for (i = 0; i < ZReal.Count; i++)
                 {
-                    if (ZReal.Count - i == j)
-                        continue;
-                    a[i, j] = Math.Log(Omega[i] / Omega[j - ZReal.Count]) * ((Omega[j - ZReal.Count] * Gamma[i]) / (2 * (Omega[i] * Omega[i] - Omega[j - ZReal.Count] * Omega[j - ZReal.Count])));
-                    ab[i, j] = Math.Log(Omega[i] / Omega[j - ZReal.Count]) * ((Omega[j - ZReal.Count] * Gamma[i]) / (2 * (Omega[i] * Omega[i] - Omega[j - ZReal.Count] * Omega[j - ZReal.Count])));
+                    for (j = ZReal.Count; j < 2 * ZReal.Count; j++)
+                    {
+                        if (ZReal.Count - i == j)
+                            continue;
+                        a[i, j] = Math.Log(Omega[i] / Omega[j - ZReal.Count]) * ((Omega[j - ZReal.Count] * Gamma[i]) / (2 * (Omega[i] * Omega[i] - Omega[j - ZReal.Count] * Omega[j - ZReal.Count])));
+                        ab[i, j] = Math.Log(Omega[i] / Omega[j - ZReal.Count]) * ((Omega[j - ZReal.Count] * Gamma[i]) / (2 * (Omega[i] * Omega[i] - Omega[j - ZReal.Count] * Omega[j - ZReal.Count])));
+                    }
                 }
-            }
-            for (i = 0; i < ZReal.Count; i++)
-            {
-                a[i, ZReal.Count + i] = Gamma[i] / (2 * Omega[i]);
-            }
-            //////
-            for (i = ZReal.Count; i < 2 * ZReal.Count; i++)
-            {
-                for (j = 0; j < ZReal.Count; j++)
+                for (i = 0; i < ZReal.Count; i++)
                 {
-                    if (i - ZReal.Count == j)
-                        continue;
-                    a[i, j] = Math.Log(Omega[i - ZReal.Count] / Omega[j]) * ((Omega[i - ZReal.Count] * Gamma[i - ZReal.Count]) / (2 * (Omega[i - ZReal.Count] * Omega[i - ZReal.Count] - Omega[j] * Omega[j])));
-                    ab[i, j] = Math.Log(Omega[i - ZReal.Count] / Omega[j]) * ((Omega[i - ZReal.Count] * Gamma[i - ZReal.Count]) / (2 * (Omega[i - ZReal.Count] * Omega[i - ZReal.Count] - Omega[j] * Omega[j])));
+                    a[i, ZReal.Count + i] = Gamma[i] / (2 * Omega[i]);
                 }
-            }
-            for (i = ZReal.Count; i < 2 * ZReal.Count; i++)
-            {
-                for (j = ZReal.Count; j < 2 * ZReal.Count; j++)
+                //////
+                for (i = ZReal.Count; i < 2 * ZReal.Count; i++)
                 {
-                    a[i, j] = (Math.PI * Gamma[i - ZReal.Count]) / (2 * (Omega[i- ZReal.Count] + Omega[j - ZReal.Count]));
-                    ab[i, j] = (Math.PI * Gamma[i - ZReal.Count]) / (2 * (Omega[i - ZReal.Count] + Omega[j - ZReal.Count]));
+                    for (j = 0; j < ZReal.Count; j++)
+                    {
+                        if (i - ZReal.Count == j)
+                            continue;
+                        a[i, j] = Math.Log(Omega[i - ZReal.Count] / Omega[j]) * ((Omega[i - ZReal.Count] * Gamma[i - ZReal.Count]) / (2 * (Omega[i - ZReal.Count] * Omega[i - ZReal.Count] - Omega[j] * Omega[j])));
+                        ab[i, j] = Math.Log(Omega[i - ZReal.Count] / Omega[j]) * ((Omega[i - ZReal.Count] * Gamma[i - ZReal.Count]) / (2 * (Omega[i - ZReal.Count] * Omega[i - ZReal.Count] - Omega[j] * Omega[j])));
+                    }
                 }
+                for (i = ZReal.Count; i < 2 * ZReal.Count; i++)
+                {
+                    for (j = ZReal.Count; j < 2 * ZReal.Count; j++)
+                    {
+                        a[i, j] = (Math.PI * Gamma[i - ZReal.Count]) / (2 * (Omega[i - ZReal.Count] + Omega[j - ZReal.Count]));
+                        ab[i, j] = (Math.PI * Gamma[i - ZReal.Count]) / (2 * (Omega[i - ZReal.Count] + Omega[j - ZReal.Count]));
+                    }
+                }
+                for (i = 0; i < ZReal.Count; i++)
+                {
+                    a[i + ZReal.Count, i] = Gamma[i] / (2 * Omega[i]);
+                }
+                //////
+                for (i = 0; i < 2 * ZReal.Count; i++)
+                {
+                    a[i, i] += lambda;
+                    ab[i, i] += 2 * lambda;
+                }
+                //////
+                RightSide = new double[2 * ZReal.Count, 1];
+                for (i = 0; i < ZReal.Count; i++)
+                {
+                    RightSide[i, 0] = Gamma[i] * ZReal[i];
+                }
+                for (i = 0; i < ZReal.Count; i++)
+                {
+                    RightSide[i + ZReal.Count, 0] = Gamma[i] * ZIm[i];
+                }
+                g = Matrixes.Solve(a, RightSide);
+                gb = Matrixes.Solve(ab, RightSide);
             }
-            for (i = 0; i < ZReal.Count; i++)
-            {
-                a[i + ZReal.Count, i] = Gamma[i] / (2 * Omega[i]);
-            }
-            //////
-            for (i = 0; i < 2 * ZReal.Count; i++)
-            {
-                a[i, i] += lambda;
-                ab[i, i] += 2 * lambda;
-            }
-            //////
-            RightSide = new double[2*ZReal.Count, 1];
-            for (i = 0; i < ZReal.Count; i++)
-            {
-                RightSide[i, 0] = Gamma[i] * ZReal[i];
-            }
-            for (i = 0; i < ZReal.Count; i++)
-            {
-                RightSide[i + ZReal.Count, 0] =  Gamma[i] * ZIm[i];
-            }
-            g = Matrixes.Solve(a, RightSide);
-            gb = Matrixes.Solve(ab, RightSide);
+            textBox2.Text += ( "  " + (DateTime.Now-lol).TotalMilliseconds / 25 + "  ");
+            chart5.Series[1].Points.AddXY(ZReal.Count, (DateTime.Now-lol).TotalMilliseconds / 25);
 
             chart4.Series[0].Points.Clear();
             chart4.Series[1].Points.Clear();
@@ -1939,12 +1950,12 @@ namespace Prog
 
             }
 
-            textBox2.Text += ("Похибки для оптимального λ(Real)=" + lambda + ":" + Environment.NewLine);
-            textBox2.Text += ("  Макс для сусідів =" + NeighErCheb[MinVal] + Environment.NewLine);
-            textBox2.Text += ("  Квадратична для сусідів =" + NeighErQuadratic[MinVal] + Environment.NewLine);
-            textBox2.Text += ("  Макс для точного =" + ExactErCheb[MinVal] + Environment.NewLine);
-            textBox2.Text += ("  Квалратична для точного =" + ExactERQuadratic[MinVal] + Environment.NewLine);
-            textBox2.Text += ("  Відносна дя точного =" + ExactErRel[MinVal] + Environment.NewLine);
+           // textBox2.Text += ("Похибки для оптимального λ(Real)=" + lambda + ":" + Environment.NewLine);
+           // textBox2.Text += ("  Макс для сусідів =" + NeighErCheb[MinVal] + Environment.NewLine);
+           // textBox2.Text += ("  Квадратична для сусідів =" + NeighErQuadratic[MinVal] + Environment.NewLine);
+           // textBox2.Text += ("  Макс для точного =" + ExactErCheb[MinVal] + Environment.NewLine);
+           // textBox2.Text += ("  Квалратична для точного =" + ExactERQuadratic[MinVal] + Environment.NewLine);
+           // textBox2.Text += ("  Відносна дя точного =" + ExactErRel[MinVal] + Environment.NewLine);
         }
 
         private void button7_Click(object sender, EventArgs e)
